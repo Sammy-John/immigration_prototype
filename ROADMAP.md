@@ -11,18 +11,18 @@ This document outlines the planned development and future features for the `immi
 
 ## **Next Development Steps**
 
-### Sprint 1: Core Development
+### **Sprint 1: Core Development**
 - [ ] Develop `auth_app` for managing user authentication and authorization.
 - [ ] Start developing the `crm` app for client relationship management.
 - [ ] Begin implementation of the `payment` app for simulating payment processing.
 
-### Sprint 2: Develop Website and Additional Core Apps
+### **Sprint 2: Develop Website and Additional Core Apps**
 - [ ] Develop the `website` app to simulate user interaction.
 - [ ] Implement `email_service` app for managing email communication.
 - [ ] Build the `cloud_storage` app for secure file storage and retrieval.
 - [ ] Create `document_management` app for document handling.
 
-### Sprint 3: Develop Additional Apps and Features
+### **Sprint 3: Develop Additional Apps and Features**
 - [ ] Develop the `communication` app for live chat, notifications, and messaging.
 - [ ] Build the `analytics` app for reporting and data visualization.
 - [ ] Start initial development on other key apps:
@@ -30,19 +30,31 @@ This document outlines the planned development and future features for the `immi
 
 ## **Future Enhancements**
 
-- [ ] Expand chatbot functionalities with AI-based predictive responses.
-- [ ] Integrate machine learning tools for advanced data analytics.
-- [ ] Add additional self-service options in the client portal (e.g., real-time status updates).
-- [ ] Develop mobile applications to complement the web interface.
-- [ ] Implement two-factor authentication for enhanced security.
-- [ ] Integrate advanced workflow automation tools to handle complex processes.
+### **Planned Improvements and Security Enhancements**
+- [ ] Move sensitive settings (like `SECRET_KEY` and database credentials) to environment variables.
+- [ ] Configure PostgreSQL database to replace SQLite, set up multiple databases, and implement custom database routers.
+- [ ] Add additional security settings and middleware for production, such as `SECURE_SSL_REDIRECT`, `CSRF_COOKIE_SECURE`, and `SESSION_COOKIE_SECURE`.
+- [ ] Set up logging to capture errors and important events for debugging and monitoring.
+- [ ] Refactor `settings.py` to use a more modular and environment-based configuration (e.g., development vs. production settings).
+- [ ] Implement additional password validation rules or custom validators for enhanced security.
 
-## **Long-Term Goals**
+### **Testing and Deployment Planning**
+- [ ] Develop a comprehensive testing plan, including unit, integration, and end-to-end tests for all critical components.
+- [ ] Prepare for deployment by setting up necessary infrastructure (e.g., web server, database server) and ensuring the project is production-ready.
+- [ ] Develop a deployment checklist and script for automating the deployment process.
 
-- [ ] Continuous integration and deployment (CI/CD) pipeline setup (if needed).
+### **Long-Term Goals**
+- [ ] Set up Continuous Integration and Deployment (CI/CD) pipeline for automated testing and deployment.
 - [ ] Explore potential third-party integrations for extended functionalities.
 - [ ] Open-source the project for community contributions and feedback.
 - [ ] Scale the system to support a larger user base and more complex use cases.
+
+### **Future Scope**
+- [ ] Consider building a mobile app to complement the web interface for enhanced user engagement.
+- [ ] Expand chatbot functionalities with AI-based predictive responses and integrate with other communication tools.
+- [ ] Integrate machine learning tools for advanced data analytics and predictive modeling.
+- [ ] Add additional self-service options in the client portal, such as real-time status updates and dynamic form generation.
+- [ ] Investigate the feasibility of implementing a multi-tenancy architecture for different client types.
 
 ---
 
