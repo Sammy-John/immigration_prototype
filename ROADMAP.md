@@ -25,6 +25,7 @@ This document outlines the planned development and future features for the `immi
 ### **Sprint 3: Develop Additional Apps and Features**
 - [ ] Develop the `communication` app for live chat, notifications, and messaging.
 - [ ] Build the `analytics` app for reporting and data visualization.
+- [ ] Develop the `dashboard` app to serve as a central hub for user roles and app integrations.
 - [ ] Start initial development on other key apps:
   - [ ] `ticketing`, `feedback`, `lms`, `chatbot`, `appointment`, `workflow_automation`, `marketing`, `client_portal`, `hr_management`, `internal_communication`.
 
