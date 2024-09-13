@@ -14,13 +14,21 @@ This document outlines the planned development and future features for the `immi
 ### **Sprint 1: Core Development**
 - [x] Develop `auth_app` for managing user authentication and authorization.
 - [ ] Start developing the `crm` app for client relationship management.
+  - [ ] Implement basic lead and contact management functionality.
+  - [ ] Add lead-to-contact conversion and duplicate detection logic.
+  - [ ] Integrate with `auth_app` for user creation upon lead conversion.
+  - [ ] Include `subscribe_to_mailing_list` field for leads to manage mailing list preferences.
 - [ ] Begin implementation of the `payment` app for simulating payment processing.
 
 ### **Sprint 2: Develop Website and Additional Core Apps**
 - [ ] Develop the `website` app to simulate user interaction.
+  - [ ] Create forms for lead generation (e.g., contact form, inquiry form).
+  - [ ] Integrate with the `crm` app for lead creation.
 - [ ] Implement `email_service` app for managing email communication.
+  - [ ] Set up email notifications for user account creation and password reset.
+  - [ ] Send marketing emails to subscribed leads.
 - [ ] Build the `cloud_storage` app for secure file storage and retrieval.
-- [ ] Create `document_management` app for document handling.
+- [ ] Create `document_management` app for word processing and document handling.
 
 ### **Sprint 3: Develop Additional Apps and Features**
 - [ ] Develop the `communication` app for live chat, notifications, and messaging.
@@ -31,22 +39,6 @@ This document outlines the planned development and future features for the `immi
 
 ## **Future Enhancements**
 
-### **Planned Enhancements for `auth_app`**
-- [ ] **Password Reset and Change Features:**
-  - Implement functionality for users to reset or change their passwords securely.
-- [ ] **Email Verification and Notifications:**
-  - Integrate with `email_service` to send verification emails upon account creation and notifications for password resets and security events.
-- [ ] **User Profile Management:**
-  - Allow users to manage their profile information (except sensitive fields like roles) through a secure interface.
-- [ ] **Enhanced Security:**
-  - Implement two-factor authentication (2FA) and additional password policies (complexity, expiration).
-- [ ] **Admin Dashboard:**
-  - Develop a dashboard for administrators to manage users, view audit logs, and perform other administrative tasks.
-- [ ] **Logging Additional Actions:**
-  - Expand audit logging to cover more actions (e.g., user profile updates, login attempts, etc.).
-- [ ] **Improved User Experience:**
-  - Enhance the UI/UX of authentication and authorization pages using Bootstrap or custom styles.
-
 ### **Planned Improvements and Security Enhancements**
 - [ ] Move sensitive settings (like `SECRET_KEY` and database credentials) to environment variables.
 - [ ] Configure PostgreSQL database to replace SQLite, set up multiple databases, and implement custom database routers.
@@ -54,6 +46,18 @@ This document outlines the planned development and future features for the `immi
 - [ ] Set up logging to capture errors and important events for debugging and monitoring.
 - [ ] Refactor `settings.py` to use a more modular and environment-based configuration (e.g., development vs. production settings).
 - [ ] Implement additional password validation rules or custom validators for enhanced security.
+
+### **Future Enhancements for CRM and Marketing Integration**
+- [ ] Develop advanced features for the `crm` app, such as:
+  - [ ] Automated workflows for lead nurturing (e.g., follow-up reminders).
+  - [ ] Advanced reporting and analytics on lead conversion rates.
+  - [ ] Enhanced lead scoring and segmentation.
+- [ ] Integrate `crm` with the `marketing` app for comprehensive mailing list management.
+  - [ ] Allow contacts to manage their subscription preferences (e.g., opt-in, opt-out).
+  - [ ] Implement email campaign management and performance tracking.
+- [ ] Develop subscription management features in the `marketing` app.
+  - [ ] Handle unsubscribes and segment leads based on interests or behavior.
+  - [ ] Provide integration with external marketing platforms if needed.
 
 ### **Testing and Deployment Planning**
 - [ ] Develop a comprehensive testing plan, including unit, integration, and end-to-end tests for all critical components.
