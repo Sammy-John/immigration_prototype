@@ -26,9 +26,26 @@ All notable changes to this project will be documented in this file.
 - Build `internal_communication` app for internal communication and collaboration.
 - Create `website` app to simulate user interaction with the system.
 
+### Future Enhancements for `auth_app`
+- Implement password reset and change features.
+- Integrate email verification and notifications.
+- Enable user profile management.
+- Enhance security with two-factor authentication (2FA) and additional password policies.
+- Develop an admin dashboard for user management and audit log viewing.
+- Expand audit logging to cover additional user actions.
+- Improve the UI/UX of authentication and authorization pages.
+
 ## [Initial Setup] - 2024-09-13
 - Repository created: `immigration_prototype`.
 - Initial project planning and scope defined.
 - Outline planned core features and functionality.
 
-  
+## [Completed] - 2024-09-14
+### `auth_app` Development
+- Implemented user authentication (login/logout).
+- Added user authorization with role-based access control (RBAC).
+- Created user creation view for Managers and Super Admins.
+- Implemented meaningful audit logging for user management actions.
+- Error handling and messaging for authentication and authorization.
+- Set up the admin interface for user and group management.
+- Fixed bugs related to logging and user permissions.
