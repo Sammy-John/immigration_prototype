@@ -12,7 +12,7 @@ This document outlines the planned development and future features for the `immi
 ## **Next Development Steps**
 
 ### **Sprint 1: Core Development**
-- [ ] Develop `auth_app` for managing user authentication and authorization.
+- [x] Develop `auth_app` for managing user authentication and authorization.
 - [ ] Start developing the `crm` app for client relationship management.
 - [ ] Begin implementation of the `payment` app for simulating payment processing.
 
@@ -30,6 +30,22 @@ This document outlines the planned development and future features for the `immi
   - [ ] `ticketing`, `feedback`, `lms`, `chatbot`, `appointment`, `workflow_automation`, `marketing`, `client_portal`, `hr_management`, `internal_communication`.
 
 ## **Future Enhancements**
+
+### **Planned Enhancements for `auth_app`**
+- [ ] **Password Reset and Change Features:**
+  - Implement functionality for users to reset or change their passwords securely.
+- [ ] **Email Verification and Notifications:**
+  - Integrate with `email_service` to send verification emails upon account creation and notifications for password resets and security events.
+- [ ] **User Profile Management:**
+  - Allow users to manage their profile information (except sensitive fields like roles) through a secure interface.
+- [ ] **Enhanced Security:**
+  - Implement two-factor authentication (2FA) and additional password policies (complexity, expiration).
+- [ ] **Admin Dashboard:**
+  - Develop a dashboard for administrators to manage users, view audit logs, and perform other administrative tasks.
+- [ ] **Logging Additional Actions:**
+  - Expand audit logging to cover more actions (e.g., user profile updates, login attempts, etc.).
+- [ ] **Improved User Experience:**
+  - Enhance the UI/UX of authentication and authorization pages using Bootstrap or custom styles.
 
 ### **Planned Improvements and Security Enhancements**
 - [ ] Move sensitive settings (like `SECRET_KEY` and database credentials) to environment variables.

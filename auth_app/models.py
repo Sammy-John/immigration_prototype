@@ -1,11 +1,8 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
-
+from django.conf import settings
 
 class CustomUserManager(BaseUserManager):
-    """
-    Custom user manager to handle the creation of user with email as the unique identifier.
-    """
     def create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError('The Email field must be set')
@@ -26,20 +23,30 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, password, **extra_fields)
 
-
 class CustomUser(AbstractUser):
-    """
-    Custom user model that replaces the username field with email.
-    """
+    username = None
     email = models.EmailField(unique=True)
-    role = models.CharField(max_length=50, choices=[
-        ('super_admin', 'Super Admin'),
-        ('manager', 'Manager'),
-        ('agent', 'Agent'),
-        ('office', 'Office')
-    ], default='agent')
+    role = models.CharField(
+        max_length=50,
+        choices=[
+            ('super_admin', 'Super Admin'),
+            ('manager', 'Manager'),
+            ('agent', 'Agent'),
+            ('office', 'Office')
+        ],
+        default='agent'
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
+
+class UserAuditLog(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='audit_logs')
+    action = models.CharField(max_length=50)  # e.g., 'created', 'updated', 'deleted'
+    changed_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='changes_made')
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.changed_by} {self.action} user {self.user} at {self.timestamp}"

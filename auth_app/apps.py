@@ -23,3 +23,8 @@ class AuthAppConfig(AppConfig):
                 for group_name, permissions in groups_permissions.items():
                     group, created = Group.objects.get_or_create(name=group_name)
                     group.permissions.set(permissions)
+
+class AuthAppConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'auth_app'
+
