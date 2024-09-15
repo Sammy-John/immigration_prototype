@@ -13,7 +13,14 @@ This document outlines the planned development and future features for the `immi
 
 ### **Sprint 1: Core Development**
 - [x] Develop `auth_app` for managing user authentication and authorization.
-- [ ] Start developing the `crm` app for client relationship management.
+- [ ] Continue development of the `crm` app for client relationship management.
+  - [x] Implement user creation and update logic.
+  - [x] Ensure leads creation, update, and listing functionality.
+  - [x] Add validation and error handling for lead creation.
+  - [x] Sync users from `auth_app` to `crm` app for cross-database consistency.
+  - [ ] Enhance lead listing to include notes and mailing list fields.
+  - [ ] Test and validate all CRUD operations for leads.
+  - [ ] Implement user roles and permissions within the CRM context.
 - [ ] Begin implementation of the `payment` app for simulating payment processing.
 
 ### **Sprint 2: Develop Website and Additional Core Apps**
