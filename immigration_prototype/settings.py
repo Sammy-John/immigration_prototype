@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'auth_app',
     'crm',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -149,4 +150,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'auth_app.CustomUser'
 LOGIN_URL = '/auth/login/'  # Change this to match your login URL
-
+LOGIN_REDIRECT_URL = '/dashboard/'

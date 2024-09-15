@@ -5,5 +5,5 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('create-user/', create_internal_user_view, name='create_internal_user'),
-    path('no-permission/', no_permission_view, name='no_permission'),  # New view for permission error
+    path('no-permission/', no_permission_view, name='no_permission'),
 ]

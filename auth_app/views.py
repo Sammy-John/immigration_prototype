@@ -3,7 +3,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .forms import InternalUserCreationForm, CustomAuthenticationForm
-from .models import CustomUser, UserAuditLog  # Import the models
+from .models import CustomUser, UserAuditLog
 
 def login_view(request):
     if request.method == 'POST':
@@ -11,13 +11,13 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            
+
             # Check the user's role and redirect accordingly
             if user.role in ['manager', 'super_admin']:
                 return redirect('create_internal_user')  # Redirect to create user page for authorized users
             else:
-                messages.error(request, 'You do not have permission to access the user creation page.')
-                return redirect('no_permission')  # Redirect to a page or render a template explaining lack of permissions
+                # Redirect to the dashboard for all other users
+                return redirect('dashboard:home')  # Ensure the 'dashboard' app has the namespace set in urls.py
                 
         else:
             messages.error(request, 'Invalid email or password.')  # Show error if login fails

@@ -13,18 +13,23 @@ This document outlines the planned development and future features for the `immi
 
 ### **Sprint 1: Core Development**
 - [x] Develop `auth_app` for managing user authentication and authorization.
-- [ ] Continue development of the `crm` app for client relationship management.
+- [x] Continue development of the `crm` app for client relationship management.
   - [x] Implement user creation and update logic.
   - [x] Ensure leads creation, update, and listing functionality.
   - [x] Add validation and error handling for lead creation.
   - [x] Sync users from `auth_app` to `crm` app for cross-database consistency.
-  - [ ] Enhance lead listing to include notes and mailing list fields.
-  - [ ] Test and validate all CRUD operations for leads.
-  - [ ] Implement user roles and permissions within the CRM context.
-- [ ] Begin implementation of the `payment` app for simulating payment processing.
+  - [x] Enhance lead listing to include notes and mailing list fields.
+  - [x] Test and validate all CRUD operations for leads.
+  - [x] Implement user roles and permissions within the CRM context.
+- [ ] **Implement the `dashboard` app** to manage all feature apps.
+  - [ ] Create an initial dashboard layout with links to all current apps (`auth_app`, `crm`).
+  - [ ] Integrate basic functionalities (e.g., user management, app navigation).
+  - [ ] Provide a centralized view for admins and managers to monitor app status and user activities.
 
-### **Sprint 2: Develop Website and Additional Core Apps**
+### **Sprint 2: Develop Website, CMS, and Additional Core Apps**
 - [ ] Develop the `website` app to simulate user interaction.
+- [ ] Implement the `cms` app to allow users to edit, update, and post content.
+- [ ] Begin implementation of the `payment` app for simulating payment processing as a feature on the `website` app.
 - [ ] Implement `email_service` app for managing email communication.
 - [ ] Build the `cloud_storage` app for secure file storage and retrieval.
 - [ ] Create `document_management` app for document handling.
@@ -32,7 +37,7 @@ This document outlines the planned development and future features for the `immi
 ### **Sprint 3: Develop Additional Apps and Features**
 - [ ] Develop the `communication` app for live chat, notifications, and messaging.
 - [ ] Build the `analytics` app for reporting and data visualization.
-- [ ] Develop the `dashboard` app to serve as a central hub for user roles and app integrations.
+- [ ] Continue to expand the `dashboard` app to integrate additional apps and features.
 - [ ] Start initial development on other key apps:
   - [ ] `ticketing`, `feedback`, `lms`, `chatbot`, `appointment`, `workflow_automation`, `marketing`, `client_portal`, `hr_management`, `internal_communication`.
 
