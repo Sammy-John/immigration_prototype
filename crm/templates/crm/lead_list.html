@@ -5,7 +5,7 @@
 <!-- Add Lead Button -->
 <a href="{% url 'crm:lead_create' %}" class="btn btn-primary">Add Lead</a>
 
-<table>
+<table class="table table-bordered table-hover mt-3">
     <thead>
         <tr>
             <th>First Name</th>
@@ -14,6 +14,8 @@
             <th>Phone</th>
             <th>Inquiry Type</th>
             <th>Status</th>
+            <th>Notes</th>
+            <th>Subscribe to Mailing List</th>
             <th>Created By</th>
             <th>Last Updated By</th>
             <th>Actions</th>
@@ -28,10 +30,12 @@
             <td>{{ lead.phone }}</td>
             <td>{{ lead.get_inquiry_type_display }}</td>
             <td>{{ lead.get_status_display }}</td>
+            <td>{{ lead.notes }}</td>
+            <td>{{ lead.subscribe_to_mailing_list }}</td>
             <td>{{ lead.created_by }}</td>
             <td>{{ lead.updated_by }}</td>
             <td>
-                <a href="{% url 'crm:lead_update' lead.id %}">Edit</a>
+                <a href="{% url 'crm:lead_update' lead.id %}" class="btn btn-sm btn-warning">Edit</a>
             </td>
         </tr>
         {% endfor %}

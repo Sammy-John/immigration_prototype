@@ -6,24 +6,32 @@ class CRMRouter:
 
     def db_for_read(self, model, **hints):
         """
-        Attempts to read CRM models go to crm_db.
+        Directs read operations for 'crm' models to 'crm_db'.
+        Directs read operations for 'auth_app' models to 'default'.
         """
-        if model._meta.app_label in self.route_app_labels:
+        if model._meta.app_label == 'crm':
             return 'crm_db'
+        elif model._meta.app_label == 'auth_app':
+            return 'default'
         return None
 
     def db_for_write(self, model, **hints):
         """
-        Attempts to write CRM models go to crm_db.
+        Directs write operations for 'crm' models to 'crm_db'.
+        Directs write operations for 'auth_app' models to 'default'.
         """
-        if model._meta.app_label in self.route_app_labels:
+        if model._meta.app_label == 'crm':
             return 'crm_db'
+        elif model._meta.app_label == 'auth_app':
+            return 'default'
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """
-        Ensure that CRM app only appears in the 'crm_db' database.
+        Ensures that the CRM app only appears in the 'crm_db' database and 'auth_app' in 'default'.
         """
-        if app_label in self.route_app_labels:
+        if app_label == 'crm':
             return db == 'crm_db'
+        elif app_label == 'auth_app':
+            return db == 'default'
         return None
