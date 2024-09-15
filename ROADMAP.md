@@ -13,7 +13,14 @@ This document outlines the planned development and future features for the `immi
 
 ### **Sprint 1: Core Development**
 - [x] Develop `auth_app` for managing user authentication and authorization.
-- [ ] Start developing the `crm` app for client relationship management.
+- [ ] Continue development of the `crm` app for client relationship management.
+  - [x] Implement user creation and update logic.
+  - [x] Ensure leads creation, update, and listing functionality.
+  - [x] Add validation and error handling for lead creation.
+  - [x] Sync users from `auth_app` to `crm` app for cross-database consistency.
+  - [ ] Enhance lead listing to include notes and mailing list fields.
+  - [ ] Test and validate all CRUD operations for leads.
+  - [ ] Implement user roles and permissions within the CRM context.
 - [ ] Begin implementation of the `payment` app for simulating payment processing.
 
 ### **Sprint 2: Develop Website and Additional Core Apps**
@@ -31,22 +38,6 @@ This document outlines the planned development and future features for the `immi
 
 ## **Future Enhancements**
 
-### **Planned Enhancements for `auth_app`**
-- [ ] **Password Reset and Change Features:**
-  - Implement functionality for users to reset or change their passwords securely.
-- [ ] **Email Verification and Notifications:**
-  - Integrate with `email_service` to send verification emails upon account creation and notifications for password resets and security events.
-- [ ] **User Profile Management:**
-  - Allow users to manage their profile information (except sensitive fields like roles) through a secure interface.
-- [ ] **Enhanced Security:**
-  - Implement two-factor authentication (2FA) and additional password policies (complexity, expiration).
-- [ ] **Admin Dashboard:**
-  - Develop a dashboard for administrators to manage users, view audit logs, and perform other administrative tasks.
-- [ ] **Logging Additional Actions:**
-  - Expand audit logging to cover more actions (e.g., user profile updates, login attempts, etc.).
-- [ ] **Improved User Experience:**
-  - Enhance the UI/UX of authentication and authorization pages using Bootstrap or custom styles.
-
 ### **Planned Improvements and Security Enhancements**
 - [ ] Move sensitive settings (like `SECRET_KEY` and database credentials) to environment variables.
 - [ ] Configure PostgreSQL database to replace SQLite, set up multiple databases, and implement custom database routers.
@@ -54,6 +45,7 @@ This document outlines the planned development and future features for the `immi
 - [ ] Set up logging to capture errors and important events for debugging and monitoring.
 - [ ] Refactor `settings.py` to use a more modular and environment-based configuration (e.g., development vs. production settings).
 - [ ] Implement additional password validation rules or custom validators for enhanced security.
+- [ ] Implement cloud-hosted PostgreSQL database for better scalability and management.
 
 ### **Testing and Deployment Planning**
 - [ ] Develop a comprehensive testing plan, including unit, integration, and end-to-end tests for all critical components.

@@ -35,6 +35,12 @@ All notable changes to this project will be documented in this file.
 - Expand audit logging to cover additional user actions.
 - Improve the UI/UX of authentication and authorization pages.
 
+### Future Enhancements for `crm` App
+- Add functionality for listing leads with notes and mailing list fields.
+- Implement role-based access control specific to CRM operations.
+- Ensure all CRUD operations are fully tested and validated.
+- Sync users between `auth_app` and `crm` to maintain cross-database consistency.
+
 ## [Initial Setup] - 2024-09-13
 - Repository created: `immigration_prototype`.
 - Initial project planning and scope defined.
@@ -49,3 +55,16 @@ All notable changes to this project will be documented in this file.
 - Error handling and messaging for authentication and authorization.
 - Set up the admin interface for user and group management.
 - Fixed bugs related to logging and user permissions.
+
+## [In Progress] - 2024-09-15
+### `crm` App Development
+- Implemented user creation and update logic.
+- Developed functionality for creating, updating, and listing leads.
+- Synced users from `auth_app` to `crm` for cross-database consistency.
+- Enhanced error handling for lead creation and updates.
+- Added initial validation for duplicate leads.
+- Fixed issues related to foreign key constraints between `auth_app` and `crm`.
+
+---
+
+**Note:** This changelog is a living document and will be updated regularly to reflect the project's progress and new changes.
