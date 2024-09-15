@@ -16,13 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.shortcuts import redirect
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('auth_app.urls')),
     path('crm/', include('crm.urls')),
     path('dashboard/', include('dashboard.urls')),
-
-    path('', lambda request: redirect('login'), name='home'),
+    # Redirect the root URL to the login page
+    path('', RedirectView.as_view(pattern_name='login', permanent=False)),  # Ensure 'login' is the correct name for the login URL
 ]
