@@ -1,38 +1,30 @@
-<!-- templates/components/navbar.html -->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <!-- Brand or Logo -->
-        <a class="navbar-brand" href="#">Dashboard</a>
-
-        <!-- Toggle for mobile view -->
+        <a class="navbar-brand" href="{% url 'dashboard:home' %}">Dashboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Navbar Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
-                <!-- Link to different apps -->
+                <!-- Always display the Home link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'crm:lead_list' %}">CRM</a>
+                    <a class="nav-link" href="{% url 'dashboard:home' %}">Home</a>
                 </li>
-                <!-- Placeholder for other feature links -->
-                <!-- Add other feature links here as they are developed -->
+                <!-- Show User Management link only for managers or admins -->
+                {% if request.user.role == 'manager' or request.user.role == 'super_admin' %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'auth_app:user_list' %}">User Management</a>
+                </li>
+                {% endif %}
             </ul>
-
-            <!-- Right-side links -->
             <ul class="navbar-nav">
-                <!-- Website Link -->
+                <!-- Website link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/website/">Go to Website</a>
+                    <a class="nav-link" href="">Website</a>
                 </li>
-                <!-- User settings and logout -->
+                <!-- Logout link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">User Settings (Coming Soon)</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" href="{% url 'auth_app:logout' %}">Logout</a>
+                    <a class="nav-link" href="{% url 'auth_app:logout' %}">Logout</a>
                 </li>
             </ul>
         </div>

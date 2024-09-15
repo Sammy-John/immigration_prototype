@@ -13,11 +13,24 @@
         {% else %}
             <h5>Welcome, {{ request.user.email }}!</h5>
         {% endif %}
-                
+
     </div>
 
     <!-- Dashboard Cards Section -->
     <div class="row">
+       <!-- User Management Card (Only visible for managers and super_admins) -->
+        {% if request.user.role == 'manager' or request.user.role == 'super_admin' %}
+        <div class="col-md-4 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="bi bi-person-fill" style="font-size: 2rem;"></i>
+                    <h5 class="card-title mt-3">User Management</h5>
+                    <p class="card-text">Manage users and their roles.</p>
+                    <a href="{% url 'auth_app:user_list' %}" class="btn btn-primary">Manage Users</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         <!-- CRM Card -->
         <div class="col-md-4 mb-4">
             <div class="card text-center h-100">

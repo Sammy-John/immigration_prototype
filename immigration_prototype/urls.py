@@ -24,5 +24,5 @@ urlpatterns = [
     path('crm/', include('crm.urls')),
     path('dashboard/', include('dashboard.urls')),
     # Redirect the root URL to the login page
-    path('', RedirectView.as_view(pattern_name='login', permanent=False)),  # Ensure 'login' is the correct name for the login URL
+    path('', RedirectView.as_view(pattern_name='auth_app:login', permanent=False)),
 ]
