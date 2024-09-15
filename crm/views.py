@@ -15,9 +15,10 @@ def custom_login_required(view_func):
     def wrapper(request, *args, **kwargs):
         if not request.user.is_authenticated:
             messages.error(request, 'You must be logged in to access this page.')
-            return redirect('login')  # Redirect to login URL
+            return redirect('auth_app:login')  # Use the 'auth_app' namespace
         return view_func(request, *args, **kwargs)
     return wrapper
+
 
 @custom_login_required
 def lead_list(request):

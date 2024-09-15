@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('auth_app.urls')),
     path('crm/', include('crm.urls')),
+    path('dashboard/', include('dashboard.urls')),
+    # Redirect the root URL to the login page
+    path('', RedirectView.as_view(pattern_name='auth_app:login', permanent=False)),
 ]
