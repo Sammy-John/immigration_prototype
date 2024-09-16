@@ -9,11 +9,13 @@ This document outlines the planned development and future features for the `immi
   - [x] Define project scope and objectives.
   - [x] Outline planned core features and functionality.
 
-## **Next Development Steps**
+## **Development Sprints**
 
-### **Sprint 1: Core Development**
+### **Sprint 1: Core Authentication and CRM Development**
 - [x] Develop `auth_app` for managing user authentication and authorization.
-- [x] Continue development of the `crm` app for client relationship management.
+  - [x] Implement login, logout, and user role management.
+  - [x] Add audit logging for critical user actions.
+- [x] Develop `crm` app for client relationship management.
   - [x] Implement user creation and update logic.
   - [x] Ensure leads creation, update, and listing functionality.
   - [x] Add validation and error handling for lead creation.
@@ -21,25 +23,56 @@ This document outlines the planned development and future features for the `immi
   - [x] Enhance lead listing to include notes and mailing list fields.
   - [x] Test and validate all CRUD operations for leads.
   - [x] Implement user roles and permissions within the CRM context.
-- [ ] **Implement the `dashboard` app** to manage all feature apps.
-  - [ ] Create an initial dashboard layout with links to all current apps (`auth_app`, `crm`).
-  - [ ] Integrate basic functionalities (e.g., user management, app navigation).
-  - [ ] Provide a centralized view for admins and managers to monitor app status and user activities.
 
-### **Sprint 2: Develop Website, CMS, and Additional Core Apps**
+### **Sprint 2: Dashboard and Website Integration**
+- [x] **Implement the `dashboard` app** to manage all feature apps.
+  - [x] Create an initial dashboard layout with links to all current apps (`auth_app`, `crm`).
+  - [x] Integrate basic functionalities (e.g., user management, app navigation).
+  - [x] Provide a centralized view for admins and managers to monitor app status and user activities.
 - [ ] Develop the `website` app to simulate user interaction.
-- [ ] Implement the `cms` app to allow users to edit, update, and post content.
-- [ ] Begin implementation of the `payment` app for simulating payment processing as a feature on the `website` app.
-- [ ] Implement `email_service` app for managing email communication.
-- [ ] Build the `cloud_storage` app for secure file storage and retrieval.
-- [ ] Create `document_management` app for document handling.
+  - [ ] Implement initial website pages (home, about, contact).
+  - [ ] Add authentication links to connect to the `auth_app`.
+- [ ] Implement the `cms` app for content management.
+  - [ ] Allow users to edit, update, and post content.
+  - [ ] Ensure compatibility with website navigation.
 
-### **Sprint 3: Develop Additional Apps and Features**
+### **Sprint 3: Payment, Email, and Storage Functionality**
+- [ ] Develop the `payment` app to simulate payment processing.
+  - [ ] Integrate payment gateway for transaction simulation.
+  - [ ] Ensure secure handling of payment details.
+- [ ] Implement the `email_service` app for managing email communication.
+  - [ ] Develop templates for automated emails.
+  - [ ] Set up sending and receiving mechanisms for internal and external communication.
+- [ ] Build the `cloud_storage` app for secure file storage and retrieval.
+  - [ ] Implement document upload, download, and secure access management.
+  - [ ] Ensure integration with the `document_management` app.
+  
+### **Sprint 4: Advanced User Interaction and HR Management**
 - [ ] Develop the `communication` app for live chat, notifications, and messaging.
-- [ ] Build the `analytics` app for reporting and data visualization.
-- [ ] Continue to expand the `dashboard` app to integrate additional apps and features.
-- [ ] Start initial development on other key apps:
-  - [ ] `ticketing`, `feedback`, `lms`, `chatbot`, `appointment`, `workflow_automation`, `marketing`, `client_portal`, `hr_management`, `internal_communication`.
+  - [ ] Enable real-time chat and notifications.
+  - [ ] Integrate messaging features with `email_service`.
+- [ ] Build the `hr_management` app to manage internal user roles and permissions.
+  - [ ] Automate user onboarding and offboarding processes.
+  - [ ] Provide an interface for HR functions and employee management.
+- [ ] Continue to enhance the `dashboard` app:
+  - [ ] Integrate user management and HR functionality for managers/admins.
+  - [ ] Add a notification board for important updates and tasks.
+  
+### **Sprint 5: Analytics, Automation, and Client Portal**
+- [ ] Develop the `analytics` app for reporting and data visualization.
+  - [ ] Create dynamic reports and data dashboards.
+  - [ ] Integrate analytics into the `dashboard` app.
+- [ ] Implement the `workflow_automation` app to automate repetitive tasks.
+  - [ ] Develop triggers and automation rules for various user actions.
+- [ ] Create the `client_portal` app for secure client interactions.
+  - [ ] Add self-service options for clients, such as status updates and document uploads.
+  - [ ] Provide secure messaging and appointment scheduling.
+
+### **Sprint 6: Finalize Core Features and Launch MVP**
+- [ ] Refine all core app functionalities.
+- [ ] Perform comprehensive testing (unit, integration, end-to-end).
+- [ ] Prepare the system for production deployment.
+- [ ] Develop documentation and user guides for internal use.
 
 ## **Future Enhancements**
 

@@ -1,0 +1,58 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Custom styles for the header */
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.btn-primary {
+    background-color: #ff6600; /* Example color for CTA button */
+    border: none;
+}
+
+main {
+    padding: 2em;
+    text-align: center;
+}
+
+.hero-section {
+    background-image: url('/static/frontend/images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    /* Removed position: fixed; */
+    width: 100%;
+    bottom: 0;
+    position: relative; /* Added relative positioning to ensure normal flow */
+}
