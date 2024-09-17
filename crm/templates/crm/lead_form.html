@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% include 'navigation.html' %} 
 <h2>{% if form.instance.pk %}Update Lead{% else %}Create Lead{% endif %}</h2>
 
 <form method="post">

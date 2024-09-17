@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navigation.html' %} 
+<div class="container mt-4">
+    <h2>CMS Dashboard</h2>
+    <div class="list-group">
+        <a href="{% url 'cms:manage_pages' %}" class="list-group-item list-group-item-action">Manage Pages</a>
+        <a href="{% url 'cms:manage_posts' %}" class="list-group-item list-group-item-action">Manage Posts</a>
+        <a href="{% url 'cms:manage_services' %}" class="list-group-item list-group-item-action">Manage Services</a>
+        <a href="{% url 'cms:manage_contact' %}" class="list-group-item list-group-item-action">Manage Contact Information</a>
+        <a href="{% url 'cms:manage_assets' %}" class="list-group-item list-group-item-action">Manage Assets</a>
+    </div>
+</div>
+{% endblock %}

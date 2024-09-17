@@ -24,4 +24,5 @@ urlpatterns = [
     path('crm/', include('crm.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('', include('website.urls')),  # Set the website homepage as the default page
+    path('cms/', include('cms.urls')),
 ]

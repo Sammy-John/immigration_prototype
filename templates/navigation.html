@@ -16,11 +16,20 @@
                     <a class="nav-link" href="{% url 'auth_app:user_list' %}">User Management</a>
                 </li>
                 {% endif %}
+                <!-- Add CMS and CRM links -->
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'crm:lead_list' %}">CRM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cms:dashboard' %}">CMS</a>
+                </li>
+                {% endif %}
             </ul>
             <ul class="navbar-nav">
                 <!-- Website link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="">Website</a>
+                    <a class="nav-link" href="#">Website</a> <!-- Assuming you have a URL here -->
                 </li>
                 <!-- Logout link -->
                 <li class="nav-item">
