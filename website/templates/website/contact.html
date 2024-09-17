@@ -61,11 +61,10 @@ Contact Us
                 </div>
                 <div class="mb-3">
                     <label for="country" class="form-label">Select Your Country</label>
-                    <select id="country" name="country_code" class="form-control" onchange="updatePhoneCode(this.value)">
-                        <option value="">Select a country</option>
+                    <select id="country" name="country_code" class="form-control">
                         {% get_country_choices as country_choices %}
                         {% for code, name in country_choices %}
-                            <option value="{{ code }}">{{ name }} ({{ code }})</option>
+                            <option value="{{ code }}" {% if name == 'New Zealand' %}selected{% endif %}>{{ name }} ({{ code }})</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -89,10 +88,30 @@ Contact Us
 
 <!-- Add JavaScript to handle the country selection and update the phone number placeholder -->
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const countrySelect = document.getElementById('country');
+        const phoneInput = document.getElementById('id_phone_number');
+
+        // Set the default value and placeholder to New Zealand's country code on page load
+        if (countrySelect.value === '64') { // '64' is New Zealand's dialing code
+            phoneInput.placeholder = '+64';
+            phoneInput.value = '+64';  // Pre-fill with New Zealand's country code
+        } else {
+            phoneInput.placeholder = '+' + countrySelect.value.replace(/^\+/, '');  // Ensure single +
+            phoneInput.value = '+' + countrySelect.value.replace(/^\+/, '');  // Set initial value
+        }
+
+        // Function to update phone number input on country selection
+        countrySelect.addEventListener('change', function() {
+            updatePhoneCode(this.value);
+        });
+    });
+
     function updatePhoneCode(countryCode) {
-        const phoneInput = document.getElementById('id_phone_number');  // Adjust the ID based on your form
-        phoneInput.placeholder = countryCode;
-        phoneInput.value = countryCode;  // Pre-fill with selected country code
+        const phoneInput = document.getElementById('id_phone_number');
+        phoneInput.placeholder = `+${countryCode.replace(/^\+?/, '')}`; // Ensure single +
+        phoneInput.value = `+${countryCode.replace(/^\+?/, '')}`;  // Pre-fill with selected country code
     }
 </script>
+
 {% endblock %}
