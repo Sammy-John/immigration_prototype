@@ -16,14 +16,16 @@ def contact_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             # Combine the country code and phone number
+            country_code = form.cleaned_data['country_code']
             phone_number = form.cleaned_data['phone_number']
+            full_phone_number = country_code + phone_number
 
             # Save the form data to create a new lead in the CRM app
             Lead.objects.create(
                 first_name=form.cleaned_data['first_name'],
                 last_name=form.cleaned_data['last_name'],
                 email=form.cleaned_data['email'],
-                phone=phone_number,
+                phone=full_phone_number,
                 inquiry_type=form.cleaned_data['reason'],
                 notes=form.cleaned_data['message']
             )

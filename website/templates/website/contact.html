@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load country_codes %} <!-- Load the template tags -->
+
 {% block title %}
 Contact Us
 {% endblock %}
@@ -58,6 +60,16 @@ Contact Us
                     {{ form.email }}
                 </div>
                 <div class="mb-3">
+                    <label for="country" class="form-label">Select Your Country</label>
+                    <select id="country" name="country_code" class="form-control" onchange="updatePhoneCode(this.value)">
+                        <option value="">Select a country</option>
+                        {% get_country_choices as country_choices %}
+                        {% for code, name in country_choices %}
+                            <option value="{{ code }}">{{ name }} ({{ code }})</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
                     {{ form.phone_number.label_tag }}
                     {{ form.phone_number }}
                 </div>
@@ -74,4 +86,13 @@ Contact Us
         </div>
     </div>
 </div>
+
+<!-- Add JavaScript to handle the country selection and update the phone number placeholder -->
+<script>
+    function updatePhoneCode(countryCode) {
+        const phoneInput = document.getElementById('id_phone_number');  // Adjust the ID based on your form
+        phoneInput.placeholder = countryCode;
+        phoneInput.value = countryCode;  // Pre-fill with selected country code
+    }
+</script>
 {% endblock %}

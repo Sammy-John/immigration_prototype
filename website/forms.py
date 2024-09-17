@@ -19,7 +19,7 @@ class ContactForm(forms.Form):
     phone_number = forms.CharField(
         max_length=20, 
         required=True, 
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'id_phone_number'})
     )
     
     REASON_CHOICES = [
