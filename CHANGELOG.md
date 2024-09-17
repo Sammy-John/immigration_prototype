@@ -4,42 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-### Planned Features
-- Set up Django project with core structure.
-- Develop `auth_app` for managing authentication and authorization.
-- Create `crm` app for client relationship management.
-- Implement `payment` app to simulate payment processing.
-- Build `email_service` app for managing email communication.
-- Add `cloud_storage` app for secure file storage and management.
-- Create `document_management` app for word processing and document handling.
-- Develop `communication` app for live chat, notifications, and messaging.
-- Implement `analytics` app for generating reports and data visualization.
-- Add `ticketing` app for managing client inquiries and support requests.
-- Develop `feedback` app for collecting and analyzing client feedback.
-- Create `lms` app for training modules and educational content.
-- Add `chatbot` app to automate responses to common client queries.
-- Develop `appointment` app for scheduling client appointments and meetings.
-- Build `workflow_automation` app for automating repetitive tasks.
-- Add `marketing` app for managing marketing campaigns and newsletters.
-- Create `client_portal` app for providing a secure client interface.
-- Develop `hr_management` app for managing internal HR functions.
-- Build `internal_communication` app for internal communication and collaboration.
-- Create `website` app to simulate user interaction with the system.
+### Added
+- Integration of `website` app with `crm` for lead creation and management.
+- Implemented country code selection and phone number validation on the contact form.
+- Enhanced the `crm` app to handle leads created via the website with a distinct `created_by_id` value of `0`.
+- Display logic in the CRM lead list to correctly identify and show "Website" as the creator for web-generated leads.
+- Developed custom template filters to display the `created_by` field appropriately.
+- Updated validation for phone numbers to ensure proper formatting.
 
-### Future Enhancements for `auth_app`
-- Implement password reset and change features.
-- Integrate email verification and notifications.
-- Enable user profile management.
-- Enhance security with two-factor authentication (2FA) and additional password policies.
-- Develop an admin dashboard for user management and audit log viewing.
-- Expand audit logging to cover additional user actions.
-- Improve the UI/UX of authentication and authorization pages.
+### Changed
+- Updated `crm` app to use `created_by_id` and `updated_by_id` fields for cross-database user identification.
+- Modified views to handle lead creation and updating with cross-database compatibility.
+- Improved error messages and validation for form submissions.
 
-### Future Enhancements for `crm` App
-- Add functionality for listing leads with notes and mailing list fields.
-- Implement role-based access control specific to CRM operations.
-- Ensure all CRUD operations are fully tested and validated.
-- Sync users between `auth_app` and `crm` to maintain cross-database consistency.
+### Fixed
+- Fixed issue with duplicate emails in the lead creation form.
+- Resolved `NoReverseMatch` error for 'contact_success' view.
+- Corrected phone number validation to handle international formats.
 
 ## [Initial Setup] - 2024-09-13
 - Repository created: `immigration_prototype`.

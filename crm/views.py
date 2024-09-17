@@ -34,7 +34,7 @@ def lead_create(request):
         if form.is_valid():
             lead = form.save(commit=False)
 
-            # Instead of assigning the entire user object, use its ID
+            # Correctly set the IDs
             lead.created_by_id = request.user.id
             lead.updated_by_id = request.user.id
 
@@ -53,7 +53,6 @@ def lead_create(request):
         form = LeadForm()
 
     return render(request, 'crm/lead_form.html', {'form': form})
-
 
 @custom_login_required
 def lead_update(request, lead_id):

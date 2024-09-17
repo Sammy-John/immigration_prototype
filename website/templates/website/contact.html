@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% load country_codes %} <!-- Load the template tags -->
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or would like to get in touch, please use the form below to contact us.</p>
+
+            <!-- Display Django Messages -->
+            {% if messages %}
+                <div>
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Display Form Errors -->
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for field in form %}
+                            {% if field.errors %}
+                                <li>{{ field.label }}:
+                                    {% for error in field.errors %}
+                                        <ul><li>{{ error }}</li></ul>
+                                    {% endfor %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <!-- Contact Form -->
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Select Your Country</label>
+                    <select id="country" name="country_code" class="form-control">
+                        {% get_country_choices as country_choices %}
+                        {% for code, name in country_choices %}
+                            <option value="{{ code }}" {% if name == 'New Zealand' %}selected{% endif %}>{{ name }} ({{ code }})</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    {{ form.phone_number.label_tag }}
+                    {{ form.phone_number }}
+                </div>
+                <div class="mb-3">
+                    {{ form.reason.label_tag }}
+                    {{ form.reason }}
+                </div>
+                <div class="mb-3">
+                    {{ form.message.label_tag }}
+                    {{ form.message }}
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add JavaScript to handle the country selection and update the phone number placeholder -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const countrySelect = document.getElementById('country');
+        const phoneInput = document.getElementById('id_phone_number');
+
+        // Set the default value and placeholder to New Zealand's country code on page load
+        if (countrySelect.value === '64') { // '64' is New Zealand's dialing code
+            phoneInput.placeholder = '+64';
+            phoneInput.value = '+64';  // Pre-fill with New Zealand's country code
+        } else {
+            phoneInput.placeholder = '+' + countrySelect.value.replace(/^\+/, '');  // Ensure single +
+            phoneInput.value = '+' + countrySelect.value.replace(/^\+/, '');  // Set initial value
+        }
+
+        // Function to update phone number input on country selection
+        countrySelect.addEventListener('change', function() {
+            updatePhoneCode(this.value);
+        });
+    });
+
+    function updatePhoneCode(countryCode) {
+        const phoneInput = document.getElementById('id_phone_number');
+        phoneInput.placeholder = `+${countryCode.replace(/^\+?/, '')}`; // Ensure single +
+        phoneInput.value = `+${countryCode.replace(/^\+?/, '')}`;  // Pre-fill with selected country code
+    }
+</script>
+
+{% endblock %}

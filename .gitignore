@@ -74,6 +74,8 @@ coverage.xml
 *.swp
 *.swo
 *~
+.spyderproject
+.spyderworkspace
 
 # macOS
 .DS_Store
@@ -81,3 +83,20 @@ coverage.xml
 # Windows
 Thumbs.db
 ehthumbs.db
+*.bak
+*.tmp
+
+# Database Backups
+*.dump
+*.sql
+
+# Node Modules (if using Node.js)
+node_modules/
+
+# Temporary and Cache Files
+.mypy_cache/
+.pytest_cache/
+
+# Sensitive or Local Configuration Files
+config/settings_local.py
+secrets/

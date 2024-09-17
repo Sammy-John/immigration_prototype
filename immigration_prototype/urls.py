@@ -23,6 +23,5 @@ urlpatterns = [
     path('auth/', include('auth_app.urls')),
     path('crm/', include('crm.urls')),
     path('dashboard/', include('dashboard.urls')),
-    # Redirect the root URL to the login page
-    path('', RedirectView.as_view(pattern_name='auth_app:login', permanent=False)),
+    path('', include('website.urls')),  # Set the website homepage as the default page
 ]
