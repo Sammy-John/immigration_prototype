@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Page, Section, Service, Post, ContactDetails
+from .models import PageSection, Service, BlogPost, ContactDetail
 
-admin.site.register(Page)
-admin.site.register(Section)
+admin.site.register(PageSection)
 admin.site.register(Service)
-admin.site.register(Post)
-admin.site.register(ContactDetails)
+admin.site.register(BlogPost)
+admin.site.register(ContactDetail)
+

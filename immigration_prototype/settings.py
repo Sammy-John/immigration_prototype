@@ -96,11 +96,18 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
+    },
+     'cms_db': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('CMS_DB_NAME'),  # Add this to your .env file
+        'USER': config('CMS_DB_USER'),
+        'PASSWORD': config('CMS_DB_PASSWORD'),
+        'HOST': config('CMS_DB_HOST'),
+        'PORT': config('CMS_DB_PORT'),
     }
 }
 
-DATABASE_ROUTERS = ['immigration_prototype.database_router.CRMRouter']
-
+DATABASE_ROUTERS = ['immigration_prototype.database_router.MultiDBRouter']
 
 
 
