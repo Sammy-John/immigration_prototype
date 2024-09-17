@@ -1,4 +1,4 @@
-# **Project Roadmap**
+# **Project Roadmap: Immigration Prototype**
 
 This document outlines the planned development and future features for the `immigration_prototype` project. It serves as a to-do list and roadmap for upcoming changes and enhancements.
 
@@ -23,15 +23,18 @@ This document outlines the planned development and future features for the `immi
   - [x] Enhance lead listing to include notes and mailing list fields.
   - [x] Test and validate all CRUD operations for leads.
   - [x] Implement user roles and permissions within the CRM context.
+  - [x] Configure cross-database user reference by `created_by_id` with `0` identifying `website`.
+  - [x] Ensure leads from website are correctly stored and identified in the CRM.
 
 ### **Sprint 2: Dashboard and Website Integration**
 - [x] **Implement the `dashboard` app** to manage all feature apps.
   - [x] Create an initial dashboard layout with links to all current apps (`auth_app`, `crm`).
   - [x] Integrate basic functionalities (e.g., user management, app navigation).
   - [x] Provide a centralized view for admins and managers to monitor app status and user activities.
-- [ ] Develop the `website` app to simulate user interaction.
-  - [ ] Implement initial website pages (home, about, contact).
-  - [ ] Add authentication links to connect to the `auth_app`.
+- [x] Develop the `website` app to simulate user interaction.
+  - [x] Implement initial website pages (home, about, contact).
+  - [x] Integrate country code selection and phone number validation.
+  - [x] Handle form submissions and properly log leads in the CRM with website identification.
 - [ ] Implement the `cms` app for content management.
   - [ ] Allow users to edit, update, and post content.
   - [ ] Ensure compatibility with website navigation.
@@ -46,7 +49,7 @@ This document outlines the planned development and future features for the `immi
 - [ ] Build the `cloud_storage` app for secure file storage and retrieval.
   - [ ] Implement document upload, download, and secure access management.
   - [ ] Ensure integration with the `document_management` app.
-  
+
 ### **Sprint 4: Advanced User Interaction and HR Management**
 - [ ] Develop the `communication` app for live chat, notifications, and messaging.
   - [ ] Enable real-time chat and notifications.
@@ -57,7 +60,7 @@ This document outlines the planned development and future features for the `immi
 - [ ] Continue to enhance the `dashboard` app:
   - [ ] Integrate user management and HR functionality for managers/admins.
   - [ ] Add a notification board for important updates and tasks.
-  
+
 ### **Sprint 5: Analytics, Automation, and Client Portal**
 - [ ] Develop the `analytics` app for reporting and data visualization.
   - [ ] Create dynamic reports and data dashboards.

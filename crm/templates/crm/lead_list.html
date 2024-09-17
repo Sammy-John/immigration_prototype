@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
+
 {% block content %}
+
 <h2>Leads List</h2>
 
 <!-- Add Lead Button -->
@@ -22,23 +25,43 @@
         </tr>
     </thead>
     <tbody>
-        {% for lead in leads %}
-        <tr>
-            <td>{{ lead.first_name }}</td>
-            <td>{{ lead.last_name }}</td>
-            <td>{{ lead.email }}</td>
-            <td>{{ lead.phone }}</td>
-            <td>{{ lead.get_inquiry_type_display }}</td>
-            <td>{{ lead.get_status_display }}</td>
-            <td>{{ lead.notes }}</td>
-            <td>{{ lead.subscribe_to_mailing_list }}</td>
-            <td>{{ lead.created_by }}</td>
-            <td>{{ lead.updated_by }}</td>
-            <td>
-                <a href="{% url 'crm:lead_update' lead.id %}" class="btn btn-sm btn-warning">Edit</a>
-            </td>
-        </tr>
-        {% endfor %}
+        {% if leads %}
+            {% for lead in leads %}
+            <tr>
+                <td>{{ lead.first_name }}</td>
+                <td>{{ lead.last_name }}</td>
+                <td>{{ lead.email }}</td>
+                <td>{{ lead.phone }}</td>
+                <td>{{ lead.get_inquiry_type_display }}</td>
+                <td>{{ lead.get_status_display }}</td>
+                <td>{{ lead.notes }}</td>
+                <td>{{ lead.subscribe_to_mailing_list }}</td>
+                <td>
+                    {% if lead.created_by_id == 0 %}
+                        Website
+                    {% else %}
+                        {% with user=lead.created_by_id|user_by_id %}
+                            {{ user.get_username|default:"Unknown User" }}
+                        {% endwith %}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if lead.updated_by %}
+                        {{ lead.updated_by.get_username|default:"None" }}
+                    {% else %}
+                        None
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'crm:lead_update' lead.id %}" class="btn btn-sm btn-warning">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="11">No leads found.</td>
+            </tr>
+        {% endif %}
     </tbody>
 </table>
 {% endblock %}

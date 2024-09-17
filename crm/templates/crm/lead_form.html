@@ -1,9 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>{% if form.instance.pk %}Update Lead{% else %}Create Lead{% endif %}</h2>
+
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <!-- Display form errors if there are any -->
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ field }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Render each field separately to allow for custom styling -->
+    <div class="mb-3">
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+    </div>
+    <div class="mb-3">
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+    </div>
+    <div class="mb-3">
+        {{ form.phone.label_tag }}
+        {{ form.phone }}
+    </div>
+    <div class="mb-3">
+        {{ form.inquiry_type.label_tag }}
+        {{ form.inquiry_type }}
+    </div>
+    <div class="mb-3">
+        {{ form.subscribe_to_mailing_list.label_tag }}
+        {{ form.subscribe_to_mailing_list }}
+    </div>
+    <div class="mb-3">
+        {{ form.notes.label_tag }}
+        {{ form.notes }}
+    </div>
+
+    <!-- Submit button -->
     <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
 </form>
 {% endblock %}

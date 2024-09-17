@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Integration of `website` app with `crm` for lead creation and management.
+- Implemented country code selection and phone number validation on the contact form.
+- Enhanced the `crm` app to handle leads created via the website with a distinct `created_by_id` value of `0`.
+- Display logic in the CRM lead list to correctly identify and show "Website" as the creator for web-generated leads.
+- Developed custom template filters to display the `created_by` field appropriately.
+- Updated validation for phone numbers to ensure proper formatting.
+
+### Changed
+- Updated `crm` app to use `created_by_id` and `updated_by_id` fields for cross-database user identification.
+- Modified views to handle lead creation and updating with cross-database compatibility.
+- Improved error messages and validation for form submissions.
+
+### Fixed
+- Fixed issue with duplicate emails in the lead creation form.
+- Resolved `NoReverseMatch` error for 'contact_success' view.
+- Corrected phone number validation to handle international formats.
+
 ## [Initial Setup] - 2024-09-13
 - Repository created: `immigration_prototype`.
 - Initial project planning and scope defined.

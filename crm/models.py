@@ -1,12 +1,19 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from phonenumber_field.modelfields import PhoneNumberField
+
+User = get_user_model()
 
 class Lead(models.Model):
     """Model to represent potential leads for services."""
+
+    # Define a constant for the "website" ID
+    WEBSITE_USER_ID = 0
+
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=20, unique=True)
+    phone = PhoneNumberField()
 
     inquiry_type = models.CharField(
         max_length=50,
@@ -37,17 +44,13 @@ class Lead(models.Model):
         help_text='Indicates if the lead wants to subscribe to the mailing list for marketing emails.'
     )
 
-    created_by = models.ForeignKey(
-        get_user_model(),
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='created_leads',
-        help_text='User who created the lead.'
+    created_by_id = models.IntegerField(
+        default=WEBSITE_USER_ID,
+        help_text='ID of the user who created the lead. Default is 0 for website.'
     )
 
     updated_by = models.ForeignKey(
-        get_user_model(),
+        User,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -68,11 +71,19 @@ class Lead(models.Model):
         return f"{self.first_name} {self.last_name} - {self.email}"
 
     def save(self, *args, **kwargs):
-        # Automatically set the user who made the last update
-        if 'request' in kwargs:
-            request = kwargs.pop('request')
-            if not self.created_by:
-                self.created_by = request.user
-            self.updated_by = request.user
-
+        # Automatically set created_by_id to WEBSITE_USER_ID if not already set
+        if self.created_by_id is None:
+            self.created_by_id = self.WEBSITE_USER_ID
         super().save(*args, **kwargs)
+
+    @property
+    def created_by_display(self):
+        """Return 'Website' if created_by_id is 0, otherwise the username."""
+        if self.created_by_id == self.WEBSITE_USER_ID:
+            return "Website"
+        else:
+            try:
+                user = User.objects.get(id=self.created_by_id)
+                return user.get_full_name() or user.email
+            except User.DoesNotExist:
+                return "Unknown"
