@@ -517,80 +517,165 @@ header {
     border-radius: 10px; /* Rounded corners */
 }
 
+.recent-blogs-section {
+    background-color: #f9f9f9;
+    padding: 3rem 0;
+}
+
+.blog-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.blog-card .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.blog-card .card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+.blog-card .btn {
+    font-size: 0.9rem;
+}
 
 
 /* Footer Styles */
-footer {
-    background-color: #343a40; /* Dark background color */
-    color: #ffffff; /* White text color */
-    padding: 40px 0; /* Padding around the footer */
-    text-align: center; /* Center-align text */
+.footer {
+    background-color: #333; /* Dark background for footer */
+    color: #fff; /* White text */
+    padding: 3rem 0; /* Padding for top and bottom */
+    font-size: 0.9rem; /* Slightly smaller font size */
 }
 
-/* Footer Text Styling */
-footer p {
-    margin-bottom: 10px; /* Space below text */
-    font-size: 1rem; /* Standard font size */
+/* Footer Column Styling */
+.footer .footer-heading {
+    font-size: 1.25rem; /* Larger heading size */
+    margin-bottom: 1rem; /* Space below heading */
 }
 
-footer form {
-    max-width: 600px; /* Limit form width */
-    margin: 0 auto 20px; /* Center form and add space below */
+.footer p {
+    font-size: 0.9rem; /* Paragraph text size */
+    line-height: 1.6; /* Line height for readability */
+    margin-bottom: 1.5rem; /* Space below paragraphs */
 }
 
-footer form .form-control {
-    border-radius: 0; /* Remove border-radius for form inputs */
+/* Footer Links */
+.footer a {
+    color: #ddd; /* Light grey for links */
+    text-decoration: none; /* Remove underline */
 }
 
-footer .btn {
-    padding: 12px 20px; /* Increase padding for buttons */
-    font-size: 1rem; /* Standard button font size */
-    border-radius: 0; /* Remove border-radius for buttons */
+.footer a:hover {
+    color: #fff; /* Hover color for links */
+    text-decoration: underline; /* Underline on hover */
 }
 
-footer .form-check {
-    display: flex; /* Flex layout for checkbox */
-    justify-content: center; /* Center checkbox and label */
-    align-items: center; /* Align items vertically */
-    margin-top: 15px; /* Space above checkbox */
+.footer ul {
+    padding-left: 0; /* Remove padding from ul */
+    list-style: none; /* Remove bullets */
 }
 
-footer .form-check-input {
-    margin-right: 10px; /* Space between checkbox and label */
+.footer ul li {
+    margin-bottom: 0.5rem; /* Space between list items */
 }
 
-footer .form-check-label {
-    font-size: 0.875rem; /* Slightly smaller font size for label */
-    line-height: 1.5; /* Improve readability */
+/* Subscribe Form Styling */
+.footer .input-group {
+    max-width: 400px; /* Limit width of subscribe form */
 }
 
-footer .social-links {
-    margin-top: 20px; /* Space above social links */
+.footer .form-control {
+    border: none; /* Remove border */
+    border-radius: 0; /* Remove rounded corners */
 }
 
-footer .social-links a {
-    color: #ffffff; /* White color for social icons */
-    margin: 0 10px; /* Space between icons */
-    font-size: 1.5rem; /* Size of the icons */
-    transition: color 0.3s ease-in-out; /* Smooth transition on hover */
+.footer .form-control:focus {
+    box-shadow: none; /* Remove focus shadow */
 }
 
-footer .social-links a:hover {
-    color: #007bff; /* Change color on hover */
+.footer .btn {
+    border-radius: 0; /* Remove rounded corners from button */
+    background-color: #007bff; /* Primary button color */
+    border: none; /* Remove border */
 }
 
-/* Responsive Footer Adjustments */
-@media (max-width: 768px) {
-    footer form {
-        width: 100%; /* Full width on mobile */
-        margin: 20px 0; /* Adjust spacing */
+.footer .btn:hover {
+    background-color: #0056b3; /* Darker on hover */
+}
+
+/* Social Media Icons */
+.footer-social a {
+    font-size: 1.2rem; /* Larger icon size */
+    color: #ddd; /* Light grey color */
+    margin-right: 0.5rem; /* Space between icons */
+}
+
+.footer-social a:hover {
+    color: #fff; /* White on hover */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid #444; /* Top border for bottom section */
+    margin-top: 2rem; /* Space above bottom section */
+    padding-top: 1rem; /* Padding for bottom section */
+    text-align: center; /* Center text */
+}
+
+/* Responsive Styles */
+@media (max-width: 767.98px) {
+    .footer .col-md-6 {
+        margin-bottom: 2rem; /* Add margin to columns on mobile */
     }
 
-    footer p, footer .form-check-label {
-        font-size: 0.875rem; /* Smaller font size on mobile */
+    .footer .footer-social {
+        text-align: center; /* Center social icons on mobile */
     }
+}
 
-    footer .social-links a {
-        font-size: 1.2rem; /* Smaller icons on mobile */
-    }
+.header-image {
+    background-image: url('/static/website/images/hero-image.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.page-header {
+    position: relative;
+    color: #fff; /* White text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow to the text */
+}
+
+.page-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1;
+}
+
+.page-header h1 {
+    position: relative;
+    z-index: 2; /* Ensure the text appears above the overlay */
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2; /* Ensure the container content appears above the overlay */
 }
