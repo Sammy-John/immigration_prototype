@@ -3,6 +3,7 @@ from crm.models import Lead
 from .forms import ContactForm
 from django.contrib import messages
 from django.db import IntegrityError
+from datetime import date
 
 def home_view(request):
     """View for the home page."""
@@ -40,10 +41,44 @@ def home_view(request):
         form = ContactForm()
     return render(request, 'website/home.html', {'form': form})
 
-def about_view(request):
-    """View for the about page."""
-    return render(request, 'website/about.html')
+from django.shortcuts import render
 
+def about_view(request):
+    # Hardcoded team members for testing
+    team_members = [
+        {
+            'name': 'John Doe',
+            'position': 'CEO',
+            'photo': 'website/images/team-member1.jpg',
+            'bio': 'John has over 20 years of experience in the immigration industry, leading our team with passion and dedication.',
+            'licence_number': 'L123456',
+            'languages_spoken': 'English, Spanish',
+            'email': 'john.doe@example.com',
+            'education': 'MBA in Business Management'
+        },
+        {
+            'name': 'Jane Smith',
+            'position': 'Chief Legal Officer',
+            'photo': 'website/images/team-member2.jpg',
+            'bio': 'Jane specializes in immigration law and has successfully represented numerous clients in complex cases.',
+            'licence_number': 'L789012',
+            'languages_spoken': 'English, Mandarin',
+            'email': 'jane.smith@example.com',
+            'education': 'LLB in Law'
+        },
+        {
+            'name': 'Alice Brown',
+            'position': 'Head of Client Services',
+            'photo': 'website/images/team-member3.jpg',
+            'bio': 'Alice is dedicated to ensuring our clients receive the best service and support throughout their immigration journey.',
+            'licence_number': None,  # No licence number
+            'languages_spoken': 'English, French',
+            'email': 'alice.brown@example.com',
+            'education': 'BA in Communications'
+        }
+    ]
+
+    return render(request, 'website/about.html', {'team_members': team_members})
 
 def contact_view(request):
     if request.method == 'POST':
@@ -148,3 +183,52 @@ def employers_view(request):
     else:
         form = ContactForm()
     return render(request, 'website/employers.html', {'form': form})
+
+def blog_view(request):
+    """View for the Blog page with mock data."""
+    # Mock data representing blog posts
+    blog_posts = [
+        {
+            'id': 1,
+            'title': 'Understanding New Zealand Visa Options',
+            'author': 'John Doe',
+            'date': date(2024, 9, 1),
+            'excerpt': 'Explore various visa options available for moving to New Zealand...',
+            'image': 'website/images/blog-image-1.jpg',
+        },
+        {
+            'id': 2,
+            'title': 'How to Prepare for Visa Application',
+            'author': 'Jane Smith',
+            'date': date(2024, 9, 5),
+            'excerpt': 'Learn about the essential documents and steps required for a successful visa application...',
+            'image': 'website/images/blog-image-2.jpg',
+        },
+        {
+            'id': 3,
+            'title': 'Common Mistakes to Avoid in Visa Applications',
+            'author': 'Emma Brown',
+            'date': date(2024, 9, 10),
+            'excerpt': 'Avoid common pitfalls that can lead to visa application rejection...',
+            'image': 'website/images/blog-image-3.jpg',
+        }
+    ]
+
+    return render(request, 'website/blog.html', {'blog_posts': blog_posts})
+
+def blog_detail_view(request, post_id):
+    """View for an individual blog post."""
+    # Mock data representing a single blog post
+    mock_post = {
+        'id': post_id,
+        'title': 'Understanding New Zealand Visa Options',
+        'author': 'John Doe',
+        'date': date(2024, 9, 1),
+        'content': '''
+            In this post, we will discuss the different visa options available for those looking to move to New Zealand. 
+            Whether you are planning to study, work, or join family, there are several visa categories to consider...
+            ''',
+        'image': 'website/images/blog-image-1.jpg',
+    }
+
+    return render(request, 'website/blog_detail.html', {'post': mock_post})

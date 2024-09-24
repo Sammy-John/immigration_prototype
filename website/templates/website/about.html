@@ -1,28 +1,73 @@
-{% extends 'base.html' %}
-
-{% block title %}
-About Us
-{% endblock %}
+{% extends 'website/base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>About Us</h2>
-            <p>
-                Welcome to our website! We are dedicated to providing the best services to our clients.
-                Our team of experts specializes in various domains, ensuring that you receive top-notch
-                support and guidance tailored to your needs.
-            </p>
-            <p>
-                Our mission is to make the immigration process seamless and straightforward for everyone.
-                We strive to stay updated with the latest regulations and policies to offer you accurate
-                and efficient services.
-            </p>
-            <p>
-                Thank you for choosing us to assist you with your immigration needs.
-            </p>
+<!-- Banner Header Section -->
+<section class="page-header d-flex align-items-center custom-header">
+    <div class="container text-center">
+        <h1 class="display-4 text-white">About Us</h1>
+    </div>
+</section>
+
+<!-- Our Testament Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2>Our Testament</h2>
+        <p class="lead">Our commitment is to provide exceptional service and support for all your immigration needs. Our team is dedicated to helping you achieve your goals with professionalism and expertise.</p>
+    </div>
+</section>
+
+<!-- Zealand Team Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Zealand Team</h2>
+        <div class="row">
+            {% for member in team_members %}
+            <div class="col-md-4 mb-4">
+                <div class="team-card text-center">
+                    <img src="{% static member.photo %}" class="img-fluid rounded-circle mb-3" alt="{{ member.name }}">
+                    <h4>{{ member.name }}</h4>
+                    <p>{{ member.position }}</p>
+                    <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#teamModal{{ forloop.counter }}">View More</a>
+                </div>
+            </div>
+
+            <!-- Team Member Modal -->
+            <div class="modal fade" id="teamModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="teamModalLabel{{ forloop.counter }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="teamModalLabel{{ forloop.counter }}">{{ member.name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="{% static member.photo %}" class="img-fluid" alt="{{ member.name }}">
+                                </div>
+                                <div class="col-md-8">
+                                    <h4>{{ member.position }}</h4>
+                                    {% if member.licence_number %}
+                                        <p><strong>Licence Number:</strong> {{ member.licence_number }}</p>
+                                    {% endif %}
+                                    {% if member.languages_spoken %}
+                                        <p><strong>Languages Spoken:</strong> {{ member.languages_spoken }}</p>
+                                    {% endif %}
+                                    {% if member.email %}
+                                        <p><strong>Email:</strong> <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+                                    {% endif %}
+                                    {% if member.education %}
+                                        <p><strong>Education:</strong> {{ member.education }}</p>
+                                    {% endif %}
+                                    <p>{{ member.bio }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-</div>
+</section>
 {% endblock %}
