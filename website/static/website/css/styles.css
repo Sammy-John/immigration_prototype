@@ -679,3 +679,206 @@ header {
     position: relative;
     z-index: 2; /* Ensure the container content appears above the overlay */
 }
+
+
+.pentagon {
+    width: 150px;
+    height: 150px;
+    background: #ddd;
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.pentagon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+}
+
+.pentagon:hover img {
+    opacity: 1;
+}
+
+.pentagon-content {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.pentagon-content h4 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.pentagon:hover .pentagon-content {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.pentagon:hover {
+    transform: scale(1.05);
+}
+
+.center-pentagon {
+    background: #333;
+    color: #fff;
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.center-pentagon .pentagon-content {
+    background: none;
+}
+
+/* Employers Section Style */
+.employers-section {
+    padding-top: 40px;
+}
+
+.employers-section .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employers-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Honeycomb Layout */
+.honeycomb-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.honeycomb-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -30px; /* Adjust for spacing between rows */
+}
+/* Hexagon Styles */
+
+.hexagon {
+    width: 120px; /* Adjust size as needed */
+    height: 104px;
+    margin: 15px;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background-size: cover; /* Ensure the image covers the hexagon */
+    background-position: center; /* Center the image in the hexagon */
+}
+
+.hexagon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Full Hexagon Overlay for Text */
+.hexagon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Lighter overlay (0.3 opacity) */
+    transition: background 0.3s ease;
+}
+
+.hexagon:hover::after {
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay on hover */
+}
+
+/* Text Overlay Styles */
+.hexagon-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for h4 */
+.hexagon-content h4 {
+    margin: 0;
+    padding: 10px;
+    color: #ffffff; /* Brighter white */
+    font-weight: bold;
+    font-size: 16px; /* Adjust font size to fit better */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Slightly lighter shadow */
+    box-sizing: border-box;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hexagon {
+        width: 100px;
+        height: 86px;
+    }
+    .hexagon-content h4 {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+}
+
+
+
+.empty {
+    visibility: hidden; /* Hide empty hexagons */
+}
+
+.center {
+    background-color: #333;
+    color: #fff;
+    pointer-events: none; /* Non-clickable */
+}
+
+/* Industry Details Section */
+.industry-details {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+}
+
+.industry-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}

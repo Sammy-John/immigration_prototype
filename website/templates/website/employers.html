@@ -1,0 +1,207 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load country_codes %}
+
+{% block content %}
+<!-- Page Header with Image -->
+<section class="page-header d-flex align-items-center header-image">
+    <div class="container text-center">
+        <h1 class="display-4 text-white">Employers</h1>
+    </div>
+</section>
+
+<!-- Industry Insights Honeycomb Section -->
+<section class="industry-honeycomb py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Industry Insights</h2>
+        <div class="honeycomb-container">
+            <!-- Center Industry Insights Hexagon -->
+            <div class="honeycomb-row">
+                <div class="hexagon empty"></div>
+                <div class="hexagon" data-industry="it-industry" style="background-image: url('{% static "website/images/industry-it.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>IT</h4>
+                    </div>
+                </div>
+                <div class="hexagon" data-industry="healthcare-industry" style="background-image: url('{% static "website/images/industry-healthcare.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Healthcare</h4>
+                    </div>
+                </div>
+                <div class="hexagon empty"></div>
+            </div>
+            <div class="honeycomb-row">
+                <div class="hexagon" data-industry="construction-industry" style="background-image: url('{% static "website/images/industry-construction.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Construction</h4>
+                    </div>
+                </div>
+                <div class="hexagon center" data-industry="industry-insights">
+                    <div class="hexagon-content">
+                        <h4>Industry Insights</h4>
+                    </div>
+                </div>
+                <div class="hexagon" data-industry="hospitality-industry" style="background-image: url('{% static "website/images/industry-hospitality.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Hospitality</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="honeycomb-row">
+                <div class="hexagon empty"></div>
+                <div class="hexagon" data-industry="manufacturing-industry" style="background-image: url('{% static "website/images/industry-manufacturing.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Manufacturing</h4>
+                    </div>
+                </div>
+                <div class="hexagon" data-industry="education-industry" style="background-image: url('{% static "website/images/industry-education.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Education</h4>
+                    </div>
+                </div>
+                <div class="hexagon empty"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Expanded Industry Information Section -->
+<section id="industry-info" class="py-5 d-none">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column: Image -->
+            <div class="col-md-6">
+                <img id="industry-image" src="" class="img-fluid" alt="Industry Image">
+            </div>
+            <!-- Right Column: Text -->
+            <div class="col-md-6">
+                <h3 id="industry-title">Industry Title</h3>
+                <p id="industry-description">Detailed information about the industry...</p>
+                <button class="btn btn-secondary" id="close-info">Close</button> <!-- Close Button -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Employers Section -->
+<section class="employers-section py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Services for Employers</h2>
+        <p class="text-center lead mb-5">We offer a range of services for employers to support their immigration needs, including visa services, job checks, and legal advice.</p>
+        <div class="row">
+            <!-- Employer Services Cards -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Employer Accreditation</h5>
+                        <p class="card-text">Assistance with becoming an accredited employer to hire international talent.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Job Checks</h5>
+                        <p class="card-text">Ensure your job listings meet immigration standards.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section with Form -->
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column: Contact Information -->
+            <div class="col-lg-6 mb-4">
+                <h3>Contact Information</h3>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-phone-alt"></i> +64 123 456 789</li>
+                    <li><i class="fas fa-envelope"></i> info@immigrationservices.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Immigration St, Wellington, New Zealand</li>
+                </ul>
+            </div>
+            <!-- Right Column: Contact Form -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm p-4">
+                    <h3 class="section-title mb-4">Get in Touch</h3>
+                    {% include 'website/contact.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Industry Details Toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hexagons = document.querySelectorAll('.hexagon');
+        const honeycombContainer = document.querySelector('.industry-honeycomb');
+        const industryInfoSection = document.getElementById('industry-info');
+        const industryImage = document.getElementById('industry-image');
+        const industryTitle = document.getElementById('industry-title');
+        const industryDescription = document.getElementById('industry-description');
+        const closeInfoButton = document.getElementById('close-info');
+    
+        const industryContent = {
+            'it-industry': {
+                title: 'IT Industry',
+                description: 'Information about the IT industry...',
+                image: '{% static "website/images/industry-it.webp" %}'
+            },
+            'healthcare-industry': {
+                title: 'Healthcare Industry',
+                description: 'Information about the healthcare industry...',
+                image: '{% static "website/images/industry-healthcare.webp" %}'
+            },
+            'construction-industry': {
+                title: 'Construction Industry',
+                description: 'Information about the construction industry...',
+                image: '{% static "website/images/industry-construction.webp" %}'
+            },
+            'hospitality-industry': {
+                title: 'Hospitality Industry',
+                description: 'Information about the hospitality industry...',
+                image: '{% static "website/images/industry-hospitality.webp" %}'
+            },
+            'manufacturing-industry': {
+                title: 'Manufacturing Industry',
+                description: 'Information about the manufacturing industry...',
+                image: '{% static "website/images/industry-manufacturing.webp" %}'
+            },
+            'education-industry': {
+                title: 'Education Industry',
+                description: 'Information about the education industry...',
+                image: '{% static "website/images/industry-education.webp" %}'
+            }
+        };
+    
+        // Show detailed info and hide honeycomb
+        hexagons.forEach(hexagon => {
+            hexagon.addEventListener('click', function() {
+                const industry = this.getAttribute('data-industry');
+                const content = industryContent[industry];
+                if (content) {
+                    industryImage.src = content.image;
+                    industryTitle.textContent = content.title;
+                    industryDescription.textContent = content.description;
+                    honeycombContainer.classList.add('d-none');
+                    industryInfoSection.classList.remove('d-none');
+                }
+            });
+        });
+    
+        // Close detailed info and show honeycomb
+        closeInfoButton.addEventListener('click', function() {
+            industryInfoSection.classList.add('d-none');
+            honeycombContainer.classList.remove('d-none');
+        });
+    });
+    </script>
+
+{% endblock %}
