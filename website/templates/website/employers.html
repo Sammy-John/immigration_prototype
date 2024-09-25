@@ -1,0 +1,386 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load country_codes %}
+
+{% block content %}
+<!-- Page Header with Image -->
+<section class="page-header d-flex align-items-center header-image">
+    <div class="container text-center">
+        <h1 class="display-4 text-white">Employers</h1>
+    </div>
+</section>
+
+<!-- Industry Insights Honeycomb Section -->
+<section class="industry-honeycomb py-5">
+    <div class="container">
+        <div class="honeycomb-container">
+            <!-- Center Industry Insights Hexagon -->
+            <div class="honeycomb-row">
+                <div class="hexagon empty"></div>
+                <div class="hexagon" data-industry="it-industry" style="background-image: url('{% static "website/images/industry-it.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>IT</h4>
+                    </div>
+                </div>
+                <div class="hexagon" data-industry="healthcare-industry" style="background-image: url('{% static "website/images/industry-healthcare.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Healthcare</h4>
+                    </div>
+                </div>
+                <div class="hexagon empty"></div>
+            </div>
+            <div class="honeycomb-row">
+                <div class="hexagon" data-industry="construction-industry" style="background-image: url('{% static "website/images/industry-construction.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Construction</h4>
+                    </div>
+                </div>
+                <div class="hexagon center" data-industry="industry-insights">
+                    <div class="hexagon-content">
+                        <h4>Industry Insights</h4>
+                    </div>
+                </div>
+                <div class="hexagon" data-industry="hospitality-industry" style="background-image: url('{% static "website/images/industry-hospitality.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Hospitality</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="honeycomb-row">
+                <div class="hexagon empty"></div>
+                <div class="hexagon" data-industry="manufacturing-industry" style="background-image: url('{% static "website/images/industry-manufacturing.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Manufacturing</h4>
+                    </div>
+                </div>
+                <div class="hexagon" data-industry="education-industry" style="background-image: url('{% static "website/images/industry-education.webp" %}');">
+                    <div class="hexagon-content">
+                        <h4>Education</h4>
+                    </div>
+                </div>
+                <div class="hexagon empty"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Expanded Industry Information Section -->
+<section id="industry-info" class="py-5 d-none">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column: Image -->
+            <div class="col-md-6">
+                <img id="industry-image" src="" class="img-fluid" alt="Industry Image">
+            </div>
+            <!-- Right Column: Text -->
+            <div class="col-md-6">
+                <h3 id="industry-title">Industry Title</h3>
+                <p id="industry-description">Detailed information about the industry...</p>
+                <button class="btn btn-secondary" id="close-info">Close</button> <!-- Close Button -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content Section for Employers -->
+<div class="container py-5">
+    <div class="row">
+        <!-- Left Column: Services List -->
+        <div class="col-lg-8">
+            <div class="services-list mb-5">
+                <h2 class="section-title">Employer Services</h2>
+                <div class="accordion" id="employerServicesAccordion">
+                    <!-- Employer Accreditation -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingAccreditation">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccreditation" aria-expanded="true" aria-controls="collapseAccreditation">
+                                Employer Accreditation
+                            </button>
+                        </h2>
+                        <div id="collapseAccreditation" class="accordion-collapse collapse show" aria-labelledby="headingAccreditation" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about employer accreditation services and requirements...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accreditation Compliance -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingCompliance">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompliance" aria-expanded="false" aria-controls="collapseCompliance">
+                                Accreditation Compliance
+                            </button>
+                        </h2>
+                        <div id="collapseCompliance" class="accordion-collapse collapse" aria-labelledby="headingCompliance" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about ensuring compliance with accreditation standards...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Employee Visas -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEmployeeVisas">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmployeeVisas" aria-expanded="false" aria-controls="collapseEmployeeVisas">
+                                Employee Visas
+                            </button>
+                        </h2>
+                        <div id="collapseEmployeeVisas" class="accordion-collapse collapse" aria-labelledby="headingEmployeeVisas" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about visas for employees, including work visas, skilled migrant visas, etc...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Visa Applications -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingVisaApplications">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVisaApplications" aria-expanded="false" aria-controls="collapseVisaApplications">
+                                Visa Applications
+                            </button>
+                        </h2>
+                        <div id="collapseVisaApplications" class="accordion-collapse collapse" aria-labelledby="headingVisaApplications" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Guidance and support for visa application processes...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Compliance and Documentation -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingComplianceDocumentation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComplianceDocumentation" aria-expanded="false" aria-controls="collapseComplianceDocumentation">
+                                Compliance and Documentation
+                            </button>
+                        </h2>
+                        <div id="collapseComplianceDocumentation" class="accordion-collapse collapse" aria-labelledby="headingComplianceDocumentation" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about maintaining compliance and proper documentation for immigration processes...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recruitment Support -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingRecruitmentSupport">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRecruitmentSupport" aria-expanded="false" aria-controls="collapseRecruitmentSupport">
+                                Recruitment Support
+                            </button>
+                        </h2>
+                        <div id="collapseRecruitmentSupport" class="accordion-collapse collapse" aria-labelledby="headingRecruitmentSupport" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Support and guidance on recruiting international talent...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Policy Updates and Training -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPolicyUpdates">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePolicyUpdates" aria-expanded="false" aria-controls="collapsePolicyUpdates">
+                                Policy Updates and Training
+                            </button>
+                        </h2>
+                        <div id="collapsePolicyUpdates" class="accordion-collapse collapse" aria-labelledby="headingPolicyUpdates" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Regular updates and training on immigration policies and regulations...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Employee Retention -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEmployeeRetention">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmployeeRetention" aria-expanded="false" aria-controls="collapseEmployeeRetention">
+                                Employee Retention
+                            </button>
+                        </h2>
+                        <div id="collapseEmployeeRetention" class="accordion-collapse collapse" aria-labelledby="headingEmployeeRetention" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Strategies and support for retaining international employees...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Legal Advice -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingLegalAdvice">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLegalAdvice" aria-expanded="false" aria-controls="collapseLegalAdvice">
+                                Legal Advice
+                            </button>
+                        </h2>
+                        <div id="collapseLegalAdvice" class="accordion-collapse collapse" aria-labelledby="headingLegalAdvice" data-bs-parent="#employerServicesAccordion">
+                            <div class="accordion-body">
+                                <p>Expert legal advice on all immigration-related matters for employers...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Contact Form -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm p-4">
+                <h3 class="section-title mb-4">Get in Touch</h3>
+                <!-- Display Django Messages -->
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Display Form Errors -->
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    <li>{{ field.label }}:
+                                        {% for error in field.errors %}
+                                            <ul><li>{{ error }}</li></ul>
+                                        {% endfor %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <!-- Contact Form -->
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Select Your Country</label>
+                        <select id="country" name="country_code" class="form-control">
+                            {% get_country_choices as country_choices %}
+                            {% for code, name in country_choices %}
+                                <option value="{{ code }}" {% if name == 'New Zealand' %}selected{% endif %}>{{ name }} ({{ code }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.phone_number.label_tag }}
+                        {{ form.phone_number }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.reason.label_tag }}
+                        {{ form.reason }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.message.label_tag }}
+                        {{ form.message }}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JavaScript for Industry Details Toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hexagons = document.querySelectorAll('.hexagon');
+        const honeycombContainer = document.querySelector('.industry-honeycomb');
+        const industryInfoSection = document.getElementById('industry-info');
+        const industryImage = document.getElementById('industry-image');
+        const industryTitle = document.getElementById('industry-title');
+        const industryDescription = document.getElementById('industry-description');
+        const closeInfoButton = document.getElementById('close-info');
+    
+        const industryContent = {
+            'it-industry': {
+                title: 'IT Industry',
+                description: 'Information about the IT industry...',
+                image: '{% static "website/images/industry-it.webp" %}'
+            },
+            'healthcare-industry': {
+                title: 'Healthcare Industry',
+                description: 'Information about the healthcare industry...',
+                image: '{% static "website/images/industry-healthcare.webp" %}'
+            },
+            'construction-industry': {
+                title: 'Construction Industry',
+                description: 'Information about the construction industry...',
+                image: '{% static "website/images/industry-construction.webp" %}'
+            },
+            'hospitality-industry': {
+                title: 'Hospitality Industry',
+                description: 'Information about the hospitality industry...',
+                image: '{% static "website/images/industry-hospitality.webp" %}'
+            },
+            'manufacturing-industry': {
+                title: 'Manufacturing Industry',
+                description: 'Information about the manufacturing industry...',
+                image: '{% static "website/images/industry-manufacturing.webp" %}'
+            },
+            'education-industry': {
+                title: 'Education Industry',
+                description: 'Information about the education industry...',
+                image: '{% static "website/images/industry-education.webp" %}'
+            }
+        };
+    
+        // Show detailed info and hide honeycomb
+        hexagons.forEach(hexagon => {
+            hexagon.addEventListener('click', function() {
+                const industry = this.getAttribute('data-industry');
+                const content = industryContent[industry];
+                if (content) {
+                    industryImage.src = content.image;
+                    industryTitle.textContent = content.title;
+                    industryDescription.textContent = content.description;
+                    honeycombContainer.classList.add('d-none');
+                    industryInfoSection.classList.remove('d-none');
+                }
+            });
+        });
+    
+        // Close detailed info and show honeycomb
+        closeInfoButton.addEventListener('click', function() {
+            industryInfoSection.classList.add('d-none');
+            honeycombContainer.classList.remove('d-none');
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const countrySelect = document.getElementById('country');
+        const phoneInput = document.getElementById('id_phone_number');
+
+        // Set the default value and placeholder to New Zealand's country code on page load
+        if (countrySelect.value === '64') { // '64' is New Zealand's dialing code
+            phoneInput.placeholder = '+64';
+            phoneInput.value = '+64';  // Pre-fill with New Zealand's country code
+        } else {
+            phoneInput.placeholder = '+' + countrySelect.value.replace(/^\+/, '');  // Ensure single +
+            phoneInput.value = '+' + countrySelect.value.replace(/^\+/, '');  // Set initial value
+        }
+
+        // Function to update phone number input on country selection
+        countrySelect.addEventListener('change', function() {
+            updatePhoneCode(this.value);
+        });
+    });
+
+    function updatePhoneCode(countryCode) {
+        const phoneInput = document.getElementById('id_phone_number');
+        phoneInput.placeholder = `+${countryCode.replace(/^\+?/, '')}`; // Ensure single +
+        phoneInput.value = `+${countryCode.replace(/^\+?/, '')}`;  // Pre-fill with selected country code
+    }
+    </script>
+
+{% endblock %}

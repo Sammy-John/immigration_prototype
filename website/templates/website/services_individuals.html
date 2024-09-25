@@ -1,0 +1,333 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load country_codes %}
+
+{% block content %}
+<!-- Page Header with Image -->
+<section class="page-header d-flex align-items-center header-image">
+    <div class="container text-center">
+        <h1 class="display-4 text-white">Services for Individuals</h1>
+    </div>
+</section>
+
+
+<!-- Main Content Section -->
+<div class="container py-5">
+    <div class="row">
+        <!-- Left Column: Services List -->
+        <div class="col-lg-8">
+            <div class="services-list mb-5">
+                <h2 class="section-title">Visa Types</h2>
+                <div class="accordion" id="visaTypesAccordion">
+                    <!-- Student Visa -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingStudent">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStudent" aria-expanded="true" aria-controls="collapseStudent">
+                                Student Visa
+                            </button>
+                        </h2>
+                        <div id="collapseStudent" class="accordion-collapse collapse show" aria-labelledby="headingStudent" data-bs-parent="#visaTypesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about student visa types and requirements...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Visit Visa -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingVisit">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVisit" aria-expanded="false" aria-controls="collapseVisit">
+                                Visit Visa
+                            </button>
+                        </h2>
+                        <div id="collapseVisit" class="accordion-collapse collapse" aria-labelledby="headingVisit" data-bs-parent="#visaTypesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about visit visa types and requirements...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Work Visa -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingWork">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWork" aria-expanded="false" aria-controls="collapseWork">
+                                Work Visa
+                            </button>
+                        </h2>
+                        <div id="collapseWork" class="accordion-collapse collapse" aria-labelledby="headingWork" data-bs-parent="#visaTypesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about work visa types and requirements...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resident Visa -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingResident">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResident" aria-expanded="false" aria-controls="collapseResident">
+                                Resident Visa
+                            </button>
+                        </h2>
+                        <div id="collapseResident" class="accordion-collapse collapse" aria-labelledby="headingResident" data-bs-parent="#visaTypesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about resident visa types and requirements...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Family Visa -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFamily">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFamily" aria-expanded="false" aria-controls="collapseFamily">
+                                Family Visa
+                            </button>
+                        </h2>
+                        <div id="collapseFamily" class="accordion-collapse collapse" aria-labelledby="headingFamily" data-bs-parent="#visaTypesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about family visa types and requirements...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Change of Visa -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingChange">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChange" aria-expanded="false" aria-controls="collapseChange">
+                                Change of Visa
+                            </button>
+                        </h2>
+                        <div id="collapseChange" class="accordion-collapse collapse" aria-labelledby="headingChange" data-bs-parent="#visaTypesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about changing visa types...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="complex-cases-list">
+                <h2 class="section-title">Complex Cases</h2>
+                <div class="accordion" id="complexCasesAccordion">
+                    <!-- PPI Response -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPPI">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePPI" aria-expanded="true" aria-controls="collapsePPI">
+                                PPI Response
+                            </button>
+                        </h2>
+                        <div id="collapsePPI" class="accordion-collapse collapse show" aria-labelledby="headingPPI" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about PPI response...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RFI Response -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingRFI">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRFI" aria-expanded="false" aria-controls="collapseRFI">
+                                RFI Response
+                            </button>
+                        </h2>
+                        <div id="collapseRFI" class="accordion-collapse collapse" aria-labelledby="headingRFI" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about RFI response...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- DLN Response -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingDLN">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDLN" aria-expanded="false" aria-controls="collapseDLN">
+                                DLN Response
+                            </button>
+                        </h2>
+                        <div id="collapseDLN" class="accordion-collapse collapse" aria-labelledby="headingDLN" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about DLN response...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section 61 Requests -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSection61">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSection61" aria-expanded="false" aria-controls="collapseSection61">
+                                Section 61 Requests
+                            </button>
+                        </h2>
+                        <div id="collapseSection61" class="accordion-collapse collapse" aria-labelledby="headingSection61" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about Section 61 requests...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Declined Residence Application -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingDeclined">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeclined" aria-expanded="false" aria-controls="collapseDeclined">
+                                Declined Residence Application
+                            </button>
+                        </h2>
+                        <div id="collapseDeclined" class="accordion-collapse collapse" aria-labelledby="headingDeclined" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about declined residence applications...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Refugee Request -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingRefugee">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRefugee" aria-expanded="false" aria-controls="collapseRefugee">
+                                Refugee Request
+                            </button>
+                        </h2>
+                        <div id="collapseRefugee" class="accordion-collapse collapse" aria-labelledby="headingRefugee" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about refugee requests...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Domestic Violence -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingDV">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDV" aria-expanded="false" aria-controls="collapseDV">
+                                Domestic Violence
+                            </button>
+                        </h2>
+                        <div id="collapseDV" class="accordion-collapse collapse" aria-labelledby="headingDV" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about domestic violence cases...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ministerial Appeals -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingMinisterial">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMinisterial" aria-expanded="false" aria-controls="collapseMinisterial">
+                                Ministerial Appeals
+                            </button>
+                        </h2>
+                        <div id="collapseMinisterial" class="accordion-collapse collapse" aria-labelledby="headingMinisterial" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about ministerial appeals...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Legal Opinion -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingLegal">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLegal" aria-expanded="false" aria-controls="collapseLegal">
+                                Legal Opinion
+                            </button>
+                        </h2>
+                        <div id="collapseLegal" class="accordion-collapse collapse" aria-labelledby="headingLegal" data-bs-parent="#complexCasesAccordion">
+                            <div class="accordion-body">
+                                <p>Information about legal opinions...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Contact Form -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm p-4">
+                <h3 class="section-title mb-4">Get in Touch</h3>
+                <!-- Display Django Messages -->
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Display Form Errors -->
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    <li>{{ field.label }}:
+                                        {% for error in field.errors %}
+                                            <ul><li>{{ error }}</li></ul>
+                                        {% endfor %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <!-- Contact Form -->
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Select Your Country</label>
+                        <select id="country" name="country_code" class="form-control">
+                            {% get_country_choices as country_choices %}
+                            {% for code, name in country_choices %}
+                                <option value="{{ code }}" {% if name == 'New Zealand' %}selected{% endif %}>{{ name }} ({{ code }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.phone_number.label_tag }}
+                        {{ form.phone_number }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.reason.label_tag }}
+                        {{ form.reason }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.message.label_tag }}
+                        {{ form.message }}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Country Selection and Phone Input -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const countrySelect = document.getElementById('country');
+        const phoneInput = document.getElementById('id_phone_number');
+
+        // Set the default value and placeholder to New Zealand's country code on page load
+        if (countrySelect.value === '64') { // '64' is New Zealand's dialing code
+            phoneInput.placeholder = '+64';
+            phoneInput.value = '+64';  // Pre-fill with New Zealand's country code
+        } else {
+            phoneInput.placeholder = '+' + countrySelect.value.replace(/^\+/, '');  // Ensure single +
+            phoneInput.value = '+' + countrySelect.value.replace(/^\+/, '');  // Set initial value
+        }
+
+        // Function to update phone number input on country selection
+        countrySelect.addEventListener('change', function() {
+            updatePhoneCode(this.value);
+        });
+    });
+
+    function updatePhoneCode(countryCode) {
+        const phoneInput = document.getElementById('id_phone_number');
+        phoneInput.placeholder = `+${countryCode.replace(/^\+?/, '')}`; // Ensure single +
+        phoneInput.value = `+${countryCode.replace(/^\+?/, '')}`;  // Pre-fill with selected country code
+    }
+</script>
+
+{% endblock %}

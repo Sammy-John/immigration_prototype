@@ -24,7 +24,7 @@ This document outlines the planned development and future features for the `immi
   - [x] Test and validate all CRUD operations for leads.
   - [x] Implement user roles and permissions within the CRM context.
   - [x] Configure cross-database user reference by `created_by_id` with `0` identifying `website`.
-  - [x] Ensure leads from website are correctly stored and identified in the CRM.
+  - [x] Ensure leads from the website are correctly stored and identified in the CRM.
 
 ### **Sprint 2: Dashboard and Website Integration**
 - [x] **Implement the `dashboard` app** to manage all feature apps.
@@ -38,6 +38,8 @@ This document outlines the planned development and future features for the `immi
 - [ ] Implement the `cms` app for content management.
   - [ ] Allow users to edit, update, and post content.
   - [ ] Ensure compatibility with website navigation.
+  - [ ] Implement image management (potential future asset management app).
+  - [ ] Enable changes to service elements and contact details.
 
 ### **Sprint 3: Payment, Email, and Storage Functionality**
 - [ ] Develop the `payment` app to simulate payment processing.

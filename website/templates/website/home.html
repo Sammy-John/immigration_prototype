@@ -1,298 +1,481 @@
 {% extends 'website/base.html' %}
-
-{% block title %}Home - Zealand Immigration Services{% endblock %}
-
+{% load static %}
+{% load country_codes %}
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section d-flex align-items-center text-center text-light" style="min-height: 100vh;">
+<section class="hero-section d-flex align-items-center">
+    <div class="container text-center">
+        <h1 class="display-4">Welcome to Our Immigration Services</h1>
+        <p class="lead">We provide expert services for individuals and businesses looking to navigate immigration processes. Whether you need a visa or business support, we're here to help.</p>
+        <a href="" class="btn btn-primary btn-lg me-3">Get Started</a>
+        <a href="" class="btn btn-outline-light btn-lg">Business Services</a>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="introduction-section py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <h1 class="mb-3">Advisory Services</h1>
-                <a href="#" class="btn btn-primary btn-lg">Click Here</a>
-            </div>
-            <div class="col-md-6 mb-4">
-                <h1 class="mb-3">Business Advisory Services</h1>
-                <a href="#" class="btn btn-primary btn-lg">Click Here</a>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <p class="lead">We are dedicated to providing expert immigration advice and services to individuals and businesses. Our team of experienced professionals is here to guide you through every step of the process, ensuring a smooth and stress-free experience.</p>
+                <p>Whether you are looking for a visa, support for your business, or help with passport services, we are committed to helping you achieve your goals. Get in touch with us today to learn more about how we can assist you.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Services for Individuals Section -->
-<section id="individuals" class="services-section py-5">
+<section class="services-section py-5 bg-light">
     <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Services for Individuals</h2>
-                <p>We offer a range of visa services to help you start your journey in New Zealand.</p>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-briefcase fa-3x mb-2"></i>
-                <h5>Work Visas</h5>
-                <a href="#">Learn More</a>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-home fa-3x mb-2"></i>
-                <h5>Resident Visas</h5>
-                <a href="#">Learn More</a>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-graduation-cap fa-3x mb-2"></i>
-                <h5>Student Visas</h5>
-                <a href="#">Learn More</a>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-users fa-3x mb-2"></i>
-                <h5>Family Visas</h5>
-                <a href="#">Learn More</a>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-plane fa-3x mb-2"></i>
-                <h5>Visit Visas</h5>
-                <a href="#">Learn More</a>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Services for Individuals</h2>
+            <p class="lead">Explore our range of individual visa services. We provide comprehensive support for family, work, resident, and student visas to help you achieve your immigration goals.</p>
+            <a href="" class="btn btn-primary btn-lg mt-3">Learn More</a> <!-- Link to Individual Services Page -->
         </div>
         <div class="row">
-            <div class="col text-center">
-                <a href="#" class="btn btn-primary">Learn More About Our Services</a>
+            <!-- Family Visa Card -->
+            <div class="col-md-3">
+                <div class="card service-card mb-4">
+                    <img src="{% static 'website/images/family_visa.webp' %}" class="card-img-top" alt="Family Visa">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Family Visa</h5>
+                        <a href="" class="stretched-link"></a> <!-- Link to Family Visa Page -->
+                    </div>
+                </div>
+            </div>
+            <!-- Work Visa Card -->
+            <div class="col-md-3">
+                <div class="card service-card mb-4">
+                    <img src="{% static 'website/images/work_visa.webp' %}" class="card-img-top" alt="Work Visa">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Work Visa</h5>
+                        <a href="" class="stretched-link"></a> <!-- Link to Work Visa Page -->
+                    </div>
+                </div>
+            </div>
+            <!-- Resident Visa Card -->
+            <div class="col-md-3">
+                <div class="card service-card mb-4">
+                    <img src="{% static 'website/images/resident_visa.webp' %}" class="card-img-top" alt="Resident Visa">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Resident Visa</h5>
+                        <a href="" class="stretched-link"></a> <!-- Link to Resident Visa Page -->
+                    </div>
+                </div>
+            </div>
+            <!-- Student Visa Card -->
+            <div class="col-md-3">
+                <div class="card service-card mb-4">
+                    <img src="{% static 'website/images/student_visa.webp' %}" class="card-img-top" alt="Student Visa">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Student Visa</h5>
+                        <a href="" class="stretched-link"></a> <!-- Link to Student Visa Page -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Employers Section -->
-<section id="employers" class="services-section py-5 bg-light">
+<section class="employers-section py-5">
     <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Services for Employers</h2>
-                <p>We offer tailored services to help employers navigate New Zealand's immigration requirements.</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Services for Employers</h2>
+            <p class="lead">We provide comprehensive support for employers, including visa services, legal advice, and job checks to ensure your business is compliant with immigration regulations.</p>
         </div>
         <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Employer Accreditation</h5>
-                        <p class="card-text">Get accredited to hire workers from overseas with ease.</p>
-                        <a href="#" class="btn btn-link">Learn More</a>
+            <!-- Employer Accreditation Card -->
+            <div class="col-md-6 d-flex mb-4">
+                <div class="card employer-card shadow-sm">
+                    <div class="card-body d-flex">
+                        <div class="card-text flex-grow-1">
+                            <h5 class="card-title">Employer Accreditation</h5>
+                            <p class="card-description">Get accredited as an employer to hire international talent. We guide you through the process to meet all requirements.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                        <div class="card-image">
+                            <img src="{% static 'website/images/for-employers.jpg' %}" alt="Employer Accreditation" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Employee Visas</h5>
-                        <p class="card-text">Simplify the process of obtaining work visas for your employees.</p>
-                        <a href="#" class="btn btn-link">Learn More</a>
+            <!-- Employee Visa Card -->
+            <div class="col-md-6 d-flex mb-4">
+                <div class="card employer-card shadow-sm">
+                    <div class="card-body d-flex">
+                        <div class="card-text flex-grow-1">
+                            <h5 class="card-title">Employee Visa</h5>
+                            <p class="card-description">Assistance with employee visa applications to ensure a smooth process for bringing international talent to your company.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                        <div class="card-image">
+                            <img src="{% static 'website/images/for-employers-2.jpg' %}" alt="Employee Visa" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Job Check</h5>
-                        <p class="card-text">Ensure your job offers meet immigration standards.</p>
-                        <a href="#" class="btn btn-link">Learn More</a>
+            <!-- Job Check Card -->
+            <div class="col-md-6 d-flex mb-4">
+                <div class="card employer-card shadow-sm">
+                    <div class="card-body d-flex">
+                        <div class="card-text flex-grow-1">
+                            <h5 class="card-title">Job Check</h5>
+                            <p class="card-description">Ensure your job listings meet immigration standards. We help you conduct job checks to stay compliant with regulations.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                        <div class="card-image">
+                            <img src="{% static 'website/images/for-employers-3.jpg' %}" alt="Job Check" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Legal Advice on Immigration</h5>
-                        <p class="card-text">Receive expert legal advice to stay compliant with immigration laws.</p>
-                        <a href="#" class="btn btn-link">Learn More</a>
+            <!-- Legal Advice Card -->
+            <div class="col-md-6 d-flex mb-4">
+                <div class="card employer-card shadow-sm">
+                    <div class="card-body d-flex">
+                        <div class="card-text flex-grow-1">
+                            <h5 class="card-title">Legal Advice</h5>
+                            <p class="card-description">Expert legal advice for employers to navigate immigration laws and regulations. Protect your business and your employees.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                        <div class="card-image">
+                            <img src="{% static 'website/images/for-employers-4.jpg' %}" alt="Legal Advice" class="img-fluid">
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column - Team Image -->
+            <div class="col-md-6 text-center">
+                <img src="{% static 'website/images/about-team-img.jpg' %}" alt="Team Image" class="img-fluid team-image">
+            </div>
+            <!-- Right Column - Heading and Text -->
+            <div class="col-md-6">
+                <h2 class="section-title">Leading Advisors Team for New Zealand Immigration Services</h2>
+                <p>Our team of experienced advisors is dedicated to providing you with the best immigration services in New Zealand. With years of expertise and a deep understanding of immigration laws and processes, we are here to help you every step of the way. We pride ourselves on our commitment to our clients and our passion for helping you achieve your goals.</p>
+                <p>Whether you need assistance with visa applications, business services, or any other immigration-related matters, you can count on us to deliver reliable and effective solutions. Get to know our team and see how we can support your journey to New Zealand.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Schools and Universities Section -->
-<section id="schools" class="services-section py-5">
+<section class="schools-section py-5">
     <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Services for Schools and Universities</h2>
-                <p>We provide comprehensive immigration services tailored for educational institutions.</p>
+        <div class="row text-center mb-4">
+            <div class="col-md-12">
+                <h2 class="section-title">Schools and Universities</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h5>International Students</h5>
-                <p>Support and visa assistance for international students seeking to study in New Zealand.</p>
+        <!-- Row of Logos -->
+        <div class="row text-center mb-4">
+            <!-- Placeholder logos, replace src with actual logo paths -->
+            <div class="col-6 col-md-2 mb-3">
+                <img src="{% static 'website/images/logo-2.jpg' %}" alt="University Logo 1" class="img-fluid logo-image">
             </div>
-            <div class="col-md-4">
-                <h5>Partner Institutes</h5>
-                <p>Collaborate with partner institutions to streamline the visa process for students and staff.</p>
+            <div class="col-6 col-md-2 mb-3">
+                <img src="{% static 'website/images/logo-4.jpg' %}" alt="University Logo 2" class="img-fluid logo-image">
             </div>
-            <div class="col-md-4">
-                <h5>Visa Support for Staff</h5>
-                <p>Specialized visa services to support academic and administrative staff at your institution.</p>
+            <div class="col-6 col-md-2 mb-3">
+                <img src="{% static 'website/images/logo-5.jpg' %}" alt="University Logo 3" class="img-fluid logo-image">
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Passports Support Section -->
-<section id="passports-support" class="services-section py-5 bg-light">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Passports Support</h2>
-                <p>We offer a variety of passport services to assist you in handling your travel and residency needs.</p>
+            <div class="col-6 col-md-2 mb-3">
+                <img src="{% static 'website/images/logo-7.jpg' %}" alt="University Logo 4" class="img-fluid logo-image">
+            </div>
+            <div class="col-6 col-md-2 mb-3">
+                <img src="{% static 'website/images/logo-8.jpg' %}" alt="University Logo 5" class="img-fluid logo-image">
+            </div>
+            <div class="col-6 col-md-2 mb-3">
+                <img src="{% static 'website/images/logo-10.jpg' %}" alt="University Logo 6" class="img-fluid logo-image">
             </div>
         </div>
+        <!-- 3 Columns Content -->
         <div class="row text-center">
+            <!-- International Students Column -->
             <div class="col-md-4 mb-4">
-                <i class="fas fa-passport fa-3x mb-2"></i>
-                <h5>India Visit Visa</h5>
+                <h3 class="section-title">International Students</h3>
+                <p>We offer comprehensive support for international students looking to study in New Zealand. From visa applications to guidance on living in New Zealand, we're here to help you every step of the way.</p>
             </div>
+            <!-- Partner Institutes Column -->
             <div class="col-md-4 mb-4">
-                <i class="fas fa-globe fa-3x mb-2"></i>
-                <h5>Other Countries Passport</h5>
+                <h3 class="section-title">Partner Institutes</h3>
+                <p>Our partnerships with top educational institutions ensure that students have access to a wide range of academic opportunities. Discover how we work with partners to provide the best experience for students.</p>
             </div>
+            <!-- Visa Support for Staff Column -->
             <div class="col-md-4 mb-4">
-                <i class="fas fa-file-alt fa-3x mb-2"></i>
-                <h5>NZ Passport Submission</h5>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-sync-alt fa-3x mb-2"></i>
-                <h5>Indian Renew Passport</h5>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-child fa-3x mb-2"></i>
-                <h5>Indian New Passport Child</h5>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-clipboard-check fa-3x mb-2"></i>
-                <h5>India ICI Submission</h5>
+                <h3 class="section-title">Visa Support for Staff</h3>
+                <p>We provide visa support for academic and non-academic staff members. Our dedicated team is here to assist with all your visa needs, making the process smooth and stress-free.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- News and Updates Section -->
-<section id="news" class="services-section py-5">
+<!-- Passport Support Section -->
+<section class="passport-support-section py-5 bg-light">
     <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>New Zealand Immigration Updates, Policies Changes and Regulations</h2>
-                <p>Stay informed about the latest immigration policies, regulations, and updates.</p>
-                <a href="https://www.immigration.govt.nz/about-us/media-centre/news-notifications" target="_blank" class="btn btn-link">View More</a>
-            </div>
-        </div>
         <div class="row">
-            <!-- External Links (to be editable via CMS) -->
-            <div class="col-md-4 mb-4">
-                <a href="https://www.immigration.govt.nz/about-us/media-centre/news-notifications" target="_blank">
-                    <img src="https://via.placeholder.com/150" alt="Update 1" class="img-fluid">
-                    <h5>Policy Update: Work Visa</h5>
-                </a>
+            <!-- Left Column: Icon Grid -->
+            <div class="col-md-6">
+                <div class="row">
+                    <!-- First Column: 3x2 Grid -->
+                    <div class="col-6 mb-4 text-center">
+                        <a href="#" class="passport-link">
+                            <i class="fas fa-passport fa-3x mb-2"></i>
+                            <p>India New Passport (Child)</p>
+                        </a>
+                    </div>
+                    <div class="col-6 mb-4 text-center">
+                        <a href="#" class="passport-link">
+                            <i class="fas fa-id-card fa-3x mb-2"></i>
+                            <p>India OCI Submission</p>
+                        </a>
+                    </div>
+                    <div class="col-6 mb-4 text-center">
+                        <a href="#" class="passport-link">
+                            <i class="fas fa-plane fa-3x mb-2"></i>
+                            <p>India Visit Visa</p>
+                        </a>
+                    </div>
+                    <div class="col-6 mb-4 text-center">
+                        <a href="#" class="passport-link">
+                            <i class="fas fa-globe fa-3x mb-2"></i>
+                            <p>Other Countries Passport</p>
+                        </a>
+                    </div>
+                    <div class="col-6 mb-4 text-center">
+                        <a href="#" class="passport-link">
+                            <i class="fas fa-passport fa-3x mb-2"></i>
+                            <p>NZ Passport Submission</p>
+                        </a>
+                    </div>
+                    <div class="col-6 mb-4 text-center">
+                        <a href="#" class="passport-link">
+                            <i class="fas fa-sync-alt fa-3x mb-2"></i>
+                            <p>Indian Renew Passport</p>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <a href="https://www.immigration.govt.nz/about-us/media-centre/news-notifications" target="_blank">
-                    <img src="https://via.placeholder.com/150" alt="Update 2" class="img-fluid">
-                    <h5>Regulation Change: Resident Visa</h5>
-                </a>
+            <!-- Right Column: Heading and Text -->
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h2 class="section-title">Comprehensive Passport Support Services</h2>
+                <p class="section-text">We offer a wide range of passport support services for individuals of various nationalities. Whether you need assistance with new passport applications, renewals, or visa submissions, our team is here to help. Contact us to learn more about our services and how we can assist you with your passport needs.</p>
             </div>
-            <div class="col-md-4 mb-4">
-                <a href="https://www.immigration.govt.nz/about-us/media-centre/news-notifications" target="_blank">
-                    <img src="https://via.placeholder.com/150" alt="Update 3" class="img-fluid">
-                    <h5>New Rule: Student Visa</h5>
-                </a>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col text-center">
-                <h2>Recent Blogs</h2>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col text-center">
-                <h2>Recent Blogs</h2>
-            </div>
-        </div>
-        <div class="row">
-            {% for post in latest_posts %}
-            <div class="col-md-4 mb-4">
-                <a href="{% url 'post_detail' post.id %}">
-                    {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid">
-                    {% else %}
-                    <img src="https://via.placeholder.com/150" alt="{{ post.title }}" class="img-fluid">
-                    {% endif %}
-                    <h5>{{ post.title }}</h5>
-                </a>
-            </div>
-            {% endfor %}
         </div>
     </div>
 </section>
 
-<!-- Contact Us Section -->
-<section id="contact" class="services-section py-5 bg-light">
+<!-- NZ Immigration Section -->
+<section class="nz-immigration-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column: Articles -->
+            <div class="col-md-8">
+                <h2 class="section-title mb-4">Latest from New Zealand Immigration</h2>
+                <p class="mb-4">Stay updated with the latest news and articles from New Zealand Immigration. Explore important information and insights related to visas, immigration policies, and more.</p>
+                <a href="#" class="btn btn-primary mb-5">View More</a>
+                <div class="row">
+                    <!-- Article 1 Thumbnail -->
+                    <div class="col-md-4 mb-4">
+                        <a href="#" class="card-link">
+                            <div class="card shadow-sm h-100">
+                                <img src="{% static 'website/images/shoot-1.jpg' %}" class="card-img-top" alt="NZ Immigration Article 1">
+                                <div class="card-body p-3">
+                                    <p class="card-text">NZ Immigration Announces New Policy for Skilled Migrants</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Article 2 Thumbnail -->
+                    <div class="col-md-4 mb-4">
+                        <a href="#" class="card-link">
+                            <div class="card shadow-sm h-100">
+                                <img src="{% static 'website/images/shoot-2.jpg' %}" class="card-img-top" alt="NZ Immigration Article 2">
+                                <div class="card-body p-3">
+                                    <p class="card-text">Understanding the Visa Application Process</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Article 3 Thumbnail -->
+                    <div class="col-md-4 mb-4">
+                        <a href="#" class="card-link">
+                            <div class="card shadow-sm h-100">
+                                <img src="{% static 'website/images/shoot-3.jpg' %}" class="card-img-top" alt="NZ Immigration Article 3">
+                                <div class="card-body p-3">
+                                    <p class="card-text">Tips for a Successful Visa Interview</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Image -->
+            <div class="col-md-4 text-center">
+                <img src="{% static 'website/images/set-1.jpg' %}" class="img-fluid rounded" alt="NZ Immigration">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Get in Touch Section -->
+<section class="get-in-touch-section py-5">
     <div class="container">
         <div class="row">
             <!-- Left Column: Contact Form -->
-            <div class="col-md-6 mb-4">
-                <h2>Get In Touch</h2>
-                <form>
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit Now</button>
-                </form>
-            </div>
-            <!-- Right Column: Contact Information -->
             <div class="col-md-6">
-                <h2>Contact Information</h2>
+                <h2 class="section-title mb-4">Get in Touch</h2>
+
+                <!-- Display Django Messages -->
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Display Form Errors -->
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    <li>{{ field.label }}:
+                                        {% for error in field.errors %}
+                                            <ul><li>{{ error }}</li></ul>
+                                        {% endfor %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <!-- Include Contact Form Template -->
+                {% include 'website/contact.html' with form=form %}
+
+            </div>
+
+            <!-- Right Column: Contact Information and Map -->
+            <div class="col-md-6">
+                <h2 class="section-title mb-4">Contact Information</h2>
                 <ul class="list-unstyled">
                     <li class="mb-3">
-                        <i class="fas fa-phone-alt fa-2x me-3"></i> 
-                        <span>+64 9 123 4567</span>
+                        <i class="fas fa-phone-alt"></i> <!-- Phone Icon -->
+                        <span class="contact-detail">+64 123 456 789</span>
                     </li>
                     <li class="mb-3">
-                        <i class="fas fa-envelope fa-2x me-3"></i> 
-                        <span>info@zealandimmigration.co.nz</span>
+                        <i class="fas fa-envelope"></i> <!-- Email Icon -->
+                        <span class="contact-detail">info@immigrationservices.com</span>
                     </li>
                     <li class="mb-3">
-                        <i class="fas fa-map-marker-alt fa-2x me-3"></i> 
-                        <span>123 Queen Street, Auckland, New Zealand</span>
+                        <i class="fas fa-map-marker-alt"></i> <!-- NZ Address Icon -->
+                        <span class="contact-detail">123 Immigration St, Wellington, New Zealand</span>
                     </li>
                     <li class="mb-3">
-                        <i class="fas fa-globe fa-2x me-3"></i> 
-                        <span>www.zealandimmigration.co.nz</span>
+                        <i class="fas fa-map-marker-alt"></i> <!-- India Address Icon -->
+                        <span class="contact-detail">456 Embassy Rd, New Delhi, India</span>
                     </li>
                 </ul>
-                <div class="mt-4">
-                    <img src="https://via.placeholder.com/350x150" alt="Google Map Location" class="img-fluid">
+                <!-- Google Static Map Image -->
+                <div class="google-map-image mt-4">
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Wellington,New+Zealand&zoom=14&size=600x300&maptype=roadmap&markers=color:red%7Clabel:I%7C-41.28664,174.77557&key=YOUR_GOOGLE_MAPS_API_KEY" 
+                         class="img-fluid rounded google-map-responsive" 
+                         alt="NZ Office Location">
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Recent Blogs Section -->
+<section class="recent-blogs-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Recent Blogs</h2>
+            <p class="lead">Explore our latest articles on immigration trends, updates, and more.</p>
+            <a href="" class="btn btn-primary btn-lg mt-3">View All Blogs</a> <!-- Link to Blog List Page -->
+        </div>
+        <div class="row">
+            <!-- Blog 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card blog-card shadow-sm h-100">
+                    <img src="{% static 'website/images/blog1.jpg' %}" class="card-img-top" alt="Blog 1 Title">
+                    <div class="card-body">
+                        <h5 class="card-title">Understanding New Zealand's Work Visa Policies</h5>
+                        <p class="card-text">A deep dive into the recent changes in work visa policies in New Zealand and how it impacts immigrants and employers.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card blog-card shadow-sm h-100">
+                    <img src="{% static 'website/images/blog2.jpg' %}" class="card-img-top" alt="Blog 2 Title">
+                    <div class="card-body">
+                        <h5 class="card-title">Top Tips for a Successful Visa Application</h5>
+                        <p class="card-text">Learn some essential tips for preparing a successful visa application to New Zealand.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card blog-card shadow-sm h-100">
+                    <img src="{% static 'website/images/blog3.jpg' %}" class="card-img-top" alt="Blog 3 Title">
+                    <div class="card-body">
+                        <h5 class="card-title">Navigating the Immigration Process for Families</h5>
+                        <p class="card-text">An informative guide for families looking to immigrate to New Zealand together.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- JavaScript for Country Selection and Phone Input -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const countrySelect = document.getElementById('country');
+        const phoneInput = document.getElementById('id_phone_number');
+
+        // Set the default value and placeholder to New Zealand's country code on page load
+        if (countrySelect.value === '64') { // '64' is New Zealand's dialing code
+            phoneInput.placeholder = '+64';
+            phoneInput.value = '+64';  // Pre-fill with New Zealand's country code
+        } else {
+            phoneInput.placeholder = '+' + countrySelect.value.replace(/^\+/, '');  // Ensure single +
+            phoneInput.value = '+' + countrySelect.value.replace(/^\+/, '');  // Set initial value
+        }
+
+        // Function to update phone number input on country selection
+        countrySelect.addEventListener('change', function() {
+            updatePhoneCode(this.value);
+        });
+    });
+
+    function updatePhoneCode(countryCode) {
+        const phoneInput = document.getElementById('id_phone_number');
+        phoneInput.placeholder = `+${countryCode.replace(/^\+?/, '')}`; // Ensure single +
+        phoneInput.value = `+${countryCode.replace(/^\+?/, '')}`;  // Pre-fill with selected country code
+    }
+</script>
 
 {% endblock %}
